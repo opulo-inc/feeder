@@ -1,0 +1,26 @@
+connectors:
+  X1: #motherboard side
+    pinlabels: [M1, GND, C1, C2, VCC, M2] # pincount implicit in pinou
+    type: Molex PicoBlade 53261-0671 1x06
+    subtype: female
+  F1: #motor side
+    pinlabels: [A, B, C, D, E, F] # pincount implicit in pinout
+    style: simple
+    show_name: false
+    type: Stripped Wire
+    autogenerate: true
+
+cables:
+  W1:
+    wirecount: 6
+    length: 0.1
+    gauge: 22 AWG
+    show_equiv: true
+    notes: Stranded - PVC Insulation
+    colors: [WH, BU, GN, YE, BK, RD]
+
+connections:
+  -
+    - X1: [1-6]
+    - W1: [1-6]
+    - [F1, F1, F1, F1, F1, F1]

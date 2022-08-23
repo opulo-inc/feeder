@@ -246,8 +246,8 @@ void loop() {
       }
       else{
         //we've got a long press, lets go speedy
-        analogWrite(DRIVE1, 0);
-        analogWrite(DRIVE2, 255);
+        analogWrite(DRIVE1, 255);
+        analogWrite(DRIVE2, 0);
         
         while(!digitalRead(SW1)){
           //do nothing
@@ -276,8 +276,8 @@ void loop() {
       }
       else{
         //we've got a long press, lets go speedy
-        analogWrite(DRIVE1, 255);
-        analogWrite(DRIVE2, 0);
+        analogWrite(DRIVE1, 0);
+        analogWrite(DRIVE2, 255);
         
         while(!digitalRead(SW2)){
           //do nothing

@@ -13,7 +13,7 @@
 #define DRIVE1   PB5
 #define DRIVE2   PB6
 #define PEEL1    PB7
-#define PEEL2    PB_8
+#define PEEL2    PA7
 
 #define ONE_WIRE PA0
 

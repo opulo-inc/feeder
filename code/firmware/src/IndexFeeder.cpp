@@ -2,20 +2,14 @@
 #include "IndexFeeder.h"
 
 #define TENTH_MM_PER_PIP 40
-#define DELAY_FORWARD_DRIVE 10
-#define DELAY_BACKWARD_DRIVE 10
-#define DELAY_PAUSE 50
-#define DRIVE_LEVEL 200
-#define TICKS_PER_TENTH_MM 10
+#define TIMEOUT_PER_PIP
+#define TICKS_PER_TENTH_MM 11.3
 
 #define TENSION_TIMEOUT         400
 
 //pid settings and gains
 #define OUTPUT_MIN 0
 #define OUTPUT_MAX 255
-#define KP .12
-#define KI .0003
-#define KD 0
 
 // Unit Tests Fail Because This Isn't Defined In ArduinoFake for some reason
 #ifndef INPUT_ANALOG
@@ -69,7 +63,7 @@ bool IndexFeeder::moveInternal(uint32_t timeout, bool forward, uint8_t tenths_mm
     ticks_to_move = tenths_mm * TICKS_PER_TENTH_MM;
     start_pos = _encoder->getPosition();
 
-    if (forward != true) {
+    if (forward == true) {
         ticks_to_move = ticks_to_move * -1;
     }
 
@@ -79,7 +73,7 @@ bool IndexFeeder::moveInternal(uint32_t timeout, bool forward, uint8_t tenths_mm
 
     bool ret = false;
 
-    float Kp=0.1, Ki=0.5, Kd=0, Hz=10;
+    float Kp=200, Ki=5, Kd=0, Hz=60;
     int output_bits = 8;
     bool output_signed = true;
     FastPID pid(Kp, Ki, Kd, Hz, output_bits, output_signed);
@@ -87,32 +81,7 @@ bool IndexFeeder::moveInternal(uint32_t timeout, bool forward, uint8_t tenths_mm
 
     while(millis() < start_time + timeout){
 
-        signed long current_pos = _encoder->getPosition();
-
-
-// Dumb if statement implementation
-
-        // if(fabs(current_pos - goal_pos) < 3){
-        //     break;
-        // }
-
-        // if(goal_pos > current_pos + 100){
-        //     analogWrite(_drive1_pin, 0);
-        //     analogWrite(_drive2_pin, 255);
-        // }
-        // else if (goal_pos < current_pos - 100){
-        //     analogWrite(_drive1_pin, 255);
-        //     analogWrite(_drive2_pin, 0);
-        // }
-        // else if (goal_pos > current_pos){
-        //     analogWrite(_drive1_pin, 0);
-        //     analogWrite(_drive2_pin, 100);
-        // }
-        // else if (goal_pos < current_pos){
-        //     analogWrite(_drive1_pin, 100);
-        //     analogWrite(_drive2_pin, 0);
-        // }
-        
+        signed long current_pos = _encoder->getPosition();        
 
 // PID implementation
 
@@ -149,6 +118,14 @@ bool IndexFeeder::tension(uint32_t timeout) {
     unsigned long start_millis, current_millis;
 
     //tension film
+    digitalWrite(PA8, LOW);
+    analogWrite(_peel1_pin, 255);
+    analogWrite(_peel2_pin, 0);
+    delay(500);
+    analogWrite(_peel1_pin, 0);
+    analogWrite(_peel2_pin, 0);
+    digitalWrite(PA8, HIGH);
+
 
     return true;
 }
@@ -157,11 +134,23 @@ bool IndexFeeder::moveForward(uint8_t tenths_mm) {
     // First, ensure everything is stopped
     stop();
 
+    //peel film
+
+    tension(TENSION_TIMEOUT);
+    
+
+    analogWrite(_peel1_pin, 255);
+    analogWrite(_peel2_pin, 0);
+    
     //move tape
-    moveInternal(2000, true, tenths_mm);
+    moveInternal(5000, true, tenths_mm);
+
+    analogWrite(_peel1_pin, 0);
+    analogWrite(_peel2_pin, 0);
 
     // move film
-    return tension(TENSION_TIMEOUT);
+    //return tension(TENSION_TIMEOUT);
+    return true;
 }
 
 bool IndexFeeder::moveBackward(uint8_t tenths_mm) {
@@ -171,8 +160,9 @@ bool IndexFeeder::moveBackward(uint8_t tenths_mm) {
     // Next, unspool some film to give the tape slack. imprecise amount because we retention later
 
     // move tape backward
-    moveInternal(2000, false, tenths_mm);
+    moveInternal(5000, false, tenths_mm);
 
+    stop();
 
     //tension film again
     return tension(TENSION_TIMEOUT);
