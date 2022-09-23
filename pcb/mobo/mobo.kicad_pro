@@ -55,7 +55,18 @@
           "width": 0.0
         }
       ],
-      "drc_exclusions": [],
+      "drc_exclusions": [
+        "courtyards_overlap|105733334|79792740|3381b763-2886-4e76-a243-cbcc2ec8a032|c1518dae-2aaf-4360-9028-98a626546353",
+        "silk_over_copper|86486397|41813603|e5fe8e2d-de47-4370-9c41-bcaa022fa756|5c30e0a8-2876-4ddd-8bb1-1f98d1d0853a",
+        "silk_over_copper|91986397|36313603|e5fe8e2d-de47-4370-9c41-bcaa022fa756|02d05f2e-b1c3-4b9f-b1e9-c886382fd3af",
+        "silk_overlap|102812000|96000000|5a9ce40e-026f-4dd2-9a35-18bdce868565|07dea2b7-24c3-46d3-9aab-8489613fedcc",
+        "silk_overlap|113665000|82000000|0a909fb0-ce42-4387-8bc3-c495ec6b42b7|908a241c-e635-461e-a7dd-0a44d5d2e813",
+        "silk_overlap|113665000|82010000|3395e230-1d35-4beb-844d-a586d1296190|908a241c-e635-461e-a7dd-0a44d5d2e813",
+        "silk_overlap|118135000|82000000|43ce8056-ea84-491b-a7a4-3133d8bb8638|908a241c-e635-461e-a7dd-0a44d5d2e813",
+        "silk_overlap|94292000|101542000|f94cd378-45f3-47f8-b73b-498d8f7118e7|494b0341-6f0b-4f7a-8dfb-899918511577",
+        "silk_overlap|94292000|96000000|f94cd378-45f3-47f8-b73b-498d8f7118e7|07dea2b7-24c3-46d3-9aab-8489613fedcc",
+        "silk_overlap|94300000|101542000|e34c8a99-2274-4e2c-94bf-8419996af011|494b0341-6f0b-4f7a-8dfb-899918511577"
+      ],
       "meta": {
         "filename": "board_design_settings.json",
         "version": 2
@@ -114,13 +125,15 @@
         "min_microvia_drill": 0.09999999999999999,
         "min_silk_clearance": 0.0,
         "min_through_hole_diameter": 0.3,
-        "min_track_width": 0.19999999999999998,
+        "min_track_width": 0.127,
         "min_via_annular_width": 0.049999999999999996,
         "min_via_diameter": 0.39999999999999997,
         "use_height_for_length_calcs": true
       },
       "track_widths": [
         0.0,
+        0.127,
+        0.1524,
         0.2,
         0.3,
         0.4,
@@ -373,6 +386,29 @@
         "pcb_color": "rgba(0, 0, 0, 0.000)",
         "schematic_color": "rgba(0, 0, 0, 0.000)",
         "track_width": 0.25,
+        "via_diameter": 0.6,
+        "via_drill": 0.3,
+        "wire_width": 6.0
+      },
+      {
+        "bus_width": 12.0,
+        "clearance": 0.15,
+        "diff_pair_gap": 0.25,
+        "diff_pair_via_gap": 0.25,
+        "diff_pair_width": 0.2,
+        "line_style": 0,
+        "microvia_diameter": 0.3,
+        "microvia_drill": 0.1,
+        "name": "tight",
+        "nets": [
+          "LED1",
+          "LED2",
+          "SW1",
+          "SW2"
+        ],
+        "pcb_color": "rgba(0, 0, 0, 0.000)",
+        "schematic_color": "rgba(0, 0, 0, 0.000)",
+        "track_width": 0.127,
         "via_diameter": 0.6,
         "via_drill": 0.3,
         "wire_width": 6.0
