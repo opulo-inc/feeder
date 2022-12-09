@@ -5578,7 +5578,7 @@
     (property "Footprint" "index:MHS110FRGBCT" (id 2) (at 53.34 135.89 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (property "Datasheet" "~" (id 3) (at 53.34 135.89 0)
+    (property "Datasheet" "https://datasheet.lcsc.com/lcsc/2003172139_MEIHUA-MHS110FRGBCT_C496820.pdf" (id 3) (at 53.34 135.89 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (pin "1" (uuid 2c81e43c-456d-436a-9a39-6606c8410914))
