@@ -1,0 +1,76 @@
+templates:
+  - &template_con
+    type: IDC
+    subtype: female
+    pinlabels: [GND, GND, VDC, VDC, A, B]
+    image:
+      src: ../resources/idc.jpeg
+      caption: 2x3 IDC Connector
+  - &template_wire_jumper
+    gauge: 26 AWG
+    length: 0.03
+    colors: [RD, GY, GY, GY, GY, GY]
+    category: bundle
+    type: 1.27mm Pitch Ribbon Cable
+  - &template_wire_mobo
+    gauge: 26 AWG
+    length: 0.26
+    colors: [RD, GY, GY, GY, GY, GY]
+    category: bundle
+    type: 1.27mm Pitch Ribbon Cable
+    notes: NOTE - This cable is longer than the rest.
+  - &template_wire_front_back
+    gauge: 26 AWG
+    length: 0.475
+    colors: [RD, GY, GY, GY, GY, GY]
+    category: bundle
+    type: 1.27mm Pitch Ribbon Cable
+    notes: NOTE - This cable is longer than the rest.
+
+connectors:
+  X23:
+    <<: *template_con
+  X24:
+    <<: *template_con
+  X25:
+    <<: *template_con
+  X26:
+    <<: *template_con
+  X27:
+    <<: *template_con
+  X28:
+    <<: *template_con
+
+cables:
+  W1:
+    <<: *template_wire_jumper
+  W2:
+    <<: *template_wire_jumper
+  W3:
+    <<: *template_wire_front_back
+  W4:
+    <<: *template_wire_jumper
+  W5:
+    <<: *template_wire_jumper
+
+connections:
+  -
+    - X23: [1-6]
+    - W1: [1-6]
+    - X24: [1-6]
+  -
+    - X24: [1-6]
+    - W2: [1-6]
+    - X25: [1-6]
+  -
+    - X25: [1-6]
+    - W3: [1-6]
+    - X26: [1-6]
+  -
+    - X26: [1-6]
+    - W4: [1-6]
+    - X27: [1-6]
+  -
+    - X27: [1-6]
+    - W5: [1-6]
+    - X28: [1-6]
