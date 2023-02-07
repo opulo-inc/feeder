@@ -711,7 +711,7 @@
     (uuid 00000000-0000-0000-0000-000060161293)
     (property "Reference" "J1" (id 0) (at 128.905 57.785 0))
     (property "Value" "IDC" (id 1) (at 128.905 60.0964 0))
-    (property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_2x03_P2.54mm_Vertical_SMD" (id 2) (at 130.175 66.04 0)
+    (property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_2x03_P2.54mm_Vertical" (id 2) (at 130.175 66.04 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (id 3) (at 130.175 66.04 0)
@@ -931,7 +931,7 @@
       (reference "H1") (unit 1) (value "MountingHole") (footprint "MountingHole:MountingHole_3.2mm_M3")
     )
     (path "/00000000-0000-0000-0000-000060161293"
-      (reference "J1") (unit 1) (value "IDC") (footprint "Connector_PinHeader_2.54mm:PinHeader_2x03_P2.54mm_Vertical_SMD")
+      (reference "J1") (unit 1) (value "IDC") (footprint "Connector_PinHeader_2.54mm:PinHeader_2x03_P2.54mm_Vertical")
     )
     (path "/2380f0ea-c541-4606-be9d-2786c6ace66e"
       (reference "J2") (unit 1) (value "Conn_01x05_Female") (footprint "feeder:AVX-915-005-541-Contact-Surface")
