@@ -4508,7 +4508,7 @@
   (symbol (lib_id "Connector:TestPoint") (at 250.19 1.27 0) (unit 1)
     (in_bom yes) (on_board yes)
     (uuid 15d6bd53-4d04-462f-9e54-e2793694ffe5)
-    (property "Reference" "TP?" (id 0) (at 251.587 -2.9405 0)
+    (property "Reference" "TP8" (id 0) (at 251.587 -2.9405 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "TP_QUAD_B" (id 1) (at 251.46 0 0)
@@ -4679,7 +4679,7 @@
   (symbol (lib_id "Connector:TestPoint") (at 232.41 1.27 0) (unit 1)
     (in_bom yes) (on_board yes)
     (uuid 2bd8cd74-f481-4fc9-85ea-9d82cae0dd19)
-    (property "Reference" "TP?" (id 0) (at 233.807 -2.9405 0)
+    (property "Reference" "TP7" (id 0) (at 233.807 -2.9405 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "TP_QUAD_A" (id 1) (at 233.68 0 0)
@@ -5334,15 +5334,15 @@
     (pin "1" (uuid 69f4bb81-e4e8-408e-a46d-593aa48eddda))
   )
 
-  (symbol (lib_id "Connector:Conn_01x06_Female") (at 265.43 100.33 90) (unit 1)
+  (symbol (lib_id "Connector:Conn_01x06_Female") (at 267.97 100.33 270) (mirror x) (unit 1)
     (in_bom yes) (on_board yes)
     (uuid 7e1b5f16-ccde-4a3f-9052-88a14f3e0fd8)
-    (property "Reference" "J8" (id 0) (at 260.35 96.52 90))
-    (property "Value" "USART1" (id 1) (at 262.89 99.06 90))
-    (property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x06_P2.54mm_Vertical" (id 2) (at 265.43 100.33 0)
+    (property "Reference" "J8" (id 0) (at 273.05 96.52 90))
+    (property "Value" "USART1" (id 1) (at 270.51 99.06 90))
+    (property "Footprint" "feeder:UART_FRICTION_FIT" (id 2) (at 267.97 100.33 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (property "Datasheet" "~" (id 3) (at 265.43 100.33 0)
+    (property "Datasheet" "~" (id 3) (at 267.97 100.33 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (pin "1" (uuid 385c17c0-6c8c-403e-a680-6c21a817059c))
@@ -6739,7 +6739,7 @@
       (reference "J7") (unit 1) (value "SW1") (footprint "feeder:1TS003B-1400-3500A-CT")
     )
     (path "/7e1b5f16-ccde-4a3f-9052-88a14f3e0fd8"
-      (reference "J8") (unit 1) (value "USART1") (footprint "Connector_PinHeader_2.54mm:PinHeader_1x06_P2.54mm_Vertical")
+      (reference "J8") (unit 1) (value "USART1") (footprint "feeder:UART_FRICTION_FIT")
     )
     (path "/1a7c9e7d-a4d3-4390-bf1e-6a7aa083fdcb"
       (reference "J9") (unit 1) (value "SWD_10") (footprint "Connector_PinHeader_1.27mm:PinHeader_2x05_P1.27mm_Vertical_SMD")
@@ -6804,11 +6804,11 @@
     (path "/76286f1c-20fe-4928-b20e-ddedb97c77e1"
       (reference "TP6") (unit 1) (value "TP_PEEL_M1") (footprint "TestPoint:TestPoint_Pad_D2.0mm")
     )
-    (path "/15d6bd53-4d04-462f-9e54-e2793694ffe5"
-      (reference "TP?") (unit 1) (value "TP_QUAD_B") (footprint "TestPoint:TestPoint_Pad_D2.0mm")
-    )
     (path "/2bd8cd74-f481-4fc9-85ea-9d82cae0dd19"
-      (reference "TP?") (unit 1) (value "TP_QUAD_A") (footprint "TestPoint:TestPoint_Pad_D2.0mm")
+      (reference "TP7") (unit 1) (value "TP_QUAD_A") (footprint "TestPoint:TestPoint_Pad_D2.0mm")
+    )
+    (path "/15d6bd53-4d04-462f-9e54-e2793694ffe5"
+      (reference "TP8") (unit 1) (value "TP_QUAD_B") (footprint "TestPoint:TestPoint_Pad_D2.0mm")
     )
     (path "/9c874b6e-83d7-4931-abe0-335408880256"
       (reference "U1") (unit 1) (value "STM32F031C6Tx") (footprint "Package_QFP:LQFP-48_7x7mm_P0.5mm")
