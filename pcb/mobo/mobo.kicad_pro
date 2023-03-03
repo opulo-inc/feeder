@@ -389,7 +389,7 @@
       "idf": "",
       "netlist": "mobo.net",
       "specctra_dsn": "",
-      "step": "",
+      "step": "mobo.step",
       "vrml": ""
     },
     "page_layout_descr_file": ""
