@@ -385,7 +385,7 @@
       "idf": "",
       "netlist": "feederFloor.net",
       "specctra_dsn": "",
-      "step": "",
+      "step": "feederFloor.step",
       "vrml": ""
     },
     "page_layout_descr_file": ""
