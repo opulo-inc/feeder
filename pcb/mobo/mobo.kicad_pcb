@@ -23045,7 +23045,7 @@
   (gr_text "PEEL" (at 117.7 67.7 180) (layer "F.SilkS") (tstamp 20ece968-789a-4d19-a533-caae2bf0beb8)
     (effects (font (size 1 1) (thickness 0.15)))
   )
-  (gr_text "Feeder Controller\nREV10\nOpulo Inc." (at 122.45 100.2 180) (layer "F.SilkS") (tstamp 5cbf62f9-f966-4eae-96a3-a329fd5a4c8e)
+  (gr_text "Feeder Controller\nREV11\nOpulo Inc." (at 122.45 100.2 180) (layer "F.SilkS") (tstamp 5cbf62f9-f966-4eae-96a3-a329fd5a4c8e)
     (effects (font (size 1.5 1.5) (thickness 0.3)) (justify left))
   )
   (gr_text "BOOT" (at 125.65 104.7 180) (layer "F.SilkS") (tstamp bdab43fe-d3b3-4f9f-bd7b-23cf4814b1af)
