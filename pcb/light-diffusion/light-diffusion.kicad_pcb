@@ -1,4 +1,4 @@
-(kicad_pcb (version 20211014) (generator pcbnew)
+(kicad_pcb (version 20221018) (generator pcbnew)
 
   (general
     (thickness 1.6)
@@ -41,14 +41,15 @@
     (pad_to_mask_clearance 0)
     (pcbplotparams
       (layerselection 0x00010fc_ffffffff)
+      (plot_on_all_layers_selection 0x0000000_00000000)
       (disableapertmacros false)
       (usegerberextensions false)
       (usegerberattributes true)
       (usegerberadvancedattributes true)
       (creategerberjobfile true)
-      (svguseinch false)
+      (dashed_line_dash_ratio 12.000000)
+      (dashed_line_gap_ratio 3.000000)
       (svgprecision 6)
-      (excludeedgelayer true)
       (plotframeref false)
       (viasonmask false)
       (mode 1)
@@ -70,25 +71,26 @@
       (mirror false)
       (drillshape 0)
       (scaleselection 1)
-      (outputdirectory "out/rev00/")
+      (outputdirectory "out/rev01/")
     )
   )
 
   (net 0 "")
 
   (footprint "feeder:logo-mask" (layer "F.Cu")
-    (tedit 0) (tstamp 3bcd212e-7d60-45ed-93e6-ba99727bce5c)
+    (tstamp 3bcd212e-7d60-45ed-93e6-ba99727bce5c)
     (at 2.5 -4)
     (attr board_only exclude_from_pos_files exclude_from_bom)
     (fp_text reference "G***" (at -6.8 0) (layer "F.SilkS") hide
-      (effects (font (size 1.524 1.524) (thickness 0.3)))
+        (effects (font (size 1.524 1.524) (thickness 0.3)))
       (tstamp d3388c04-0946-424b-888f-fb390b5707dc)
     )
     (fp_text value "LOGO" (at 0.75 0) (layer "F.SilkS") hide
-      (effects (font (size 1.524 1.524) (thickness 0.3)))
+        (effects (font (size 1.524 1.524) (thickness 0.3)))
       (tstamp ce210f58-2829-4baa-bd41-e3a6a2ff18cd)
     )
-    (fp_poly (pts
+    (fp_poly
+      (pts
         (xy 5 5)
         (xy -5 5)
         (xy -5 0.082884)
@@ -347,8 +349,11 @@
         (xy -5 0.082884)
         (xy -5 -5)
         (xy 5 -5)
-      ) (layer "F.Mask") (width 0) (fill solid) (tstamp 1268f22e-513c-45f6-b22a-81a34fd5861e))
-    (fp_poly (pts
+      )
+
+      (stroke (width 0) (type solid)) (fill solid) (layer "F.Mask") (tstamp 1268f22e-513c-45f6-b22a-81a34fd5861e))
+    (fp_poly
+      (pts
         (xy 0.124383 -1.16212)
         (xy 0.138097 -1.160624)
         (xy 0.1556 -1.15823)
@@ -721,21 +726,26 @@
         (xy 0.102177 -1.161556)
         (xy 0.106804 -1.162553)
         (xy 0.114079 -1.162752)
-      ) (layer "F.Mask") (width 0) (fill solid) (tstamp 5f9fae3c-8cee-417c-a82a-540a96eec5c7))
+      )
+
+      (stroke (width 0) (type solid)) (fill solid) (layer "F.Mask") (tstamp 5f9fae3c-8cee-417c-a82a-540a96eec5c7))
   )
 
-  (gr_rect (start 0 -7) (end 5 -1) (layer "B.Mask") (width 0.1) (fill solid) (tstamp c7313a32-9acb-4f5f-960d-cb4f7972e17b))
-  (gr_line (start 0 0) (end 5 0) (layer "Edge.Cuts") (width 0.1) (tstamp 5b681c77-25ce-49d8-bdaf-e79a091e461e))
-  (gr_line (start 0 -8) (end 0 0) (layer "Edge.Cuts") (width 0.1) (tstamp b9fde3ae-339a-4034-bd54-2839dba3ef43))
-  (gr_line (start 3 -7.5) (end 5 -7.5) (layer "Edge.Cuts") (width 0.1) (tstamp c622452a-f479-4323-9ad9-04db8abf27e0))
-  (gr_line (start 5 0) (end 5 -7.5) (layer "Edge.Cuts") (width 0.1) (tstamp c6faf540-b2b4-4eb8-b3ae-c8820f05ccf2))
-  (gr_line (start 0 -8) (end 2.5 -8) (layer "Edge.Cuts") (width 0.1) (tstamp da683594-5c47-4a74-95b7-db7da4d2cadd))
-  (gr_arc (start 3 -7.5) (mid 2.646447 -7.646447) (end 2.5 -8) (layer "Edge.Cuts") (width 0.1) (tstamp f7fd5259-72a0-49d0-b406-f8c36e16cfbb))
+  (gr_rect (start 0 -7) (end 5 -1)
+    (stroke (width 0.1) (type solid)) (fill solid) (layer "B.Mask") (tstamp c7313a32-9acb-4f5f-960d-cb4f7972e17b))
+  (gr_line (start 0 0) (end 5 0)
+    (stroke (width 0.1) (type solid)) (layer "Edge.Cuts") (tstamp 5b681c77-25ce-49d8-bdaf-e79a091e461e))
+  (gr_line (start 0 -8) (end 0 0)
+    (stroke (width 0.1) (type solid)) (layer "Edge.Cuts") (tstamp b9fde3ae-339a-4034-bd54-2839dba3ef43))
+  (gr_line (start 5 0) (end 5 -8)
+    (stroke (width 0.1) (type solid)) (layer "Edge.Cuts") (tstamp c6faf540-b2b4-4eb8-b3ae-c8820f05ccf2))
+  (gr_line (start 0 -8) (end 5 -8)
+    (stroke (width 0.1) (type solid)) (layer "Edge.Cuts") (tstamp da683594-5c47-4a74-95b7-db7da4d2cadd))
 
-  (zone (net 0) (net_name "") (layers F&B.Cu) (tstamp 6ccd810e-d903-4a6a-a236-b2ae947e0716) (hatch edge 0.508)
+  (zone (net 0) (net_name "") (layers "F&B.Cu") (tstamp 6ccd810e-d903-4a6a-a236-b2ae947e0716) (hatch edge 0.508)
     (connect_pads (clearance 0))
-    (min_thickness 0.254)
-    (keepout (tracks not_allowed) (vias not_allowed) (pads not_allowed ) (copperpour not_allowed) (footprints allowed))
+    (min_thickness 0.254) (filled_areas_thickness no)
+    (keepout (tracks not_allowed) (vias not_allowed) (pads not_allowed) (copperpour not_allowed) (footprints allowed))
     (fill (thermal_gap 0.508) (thermal_bridge_width 0.508))
     (polygon
       (pts
