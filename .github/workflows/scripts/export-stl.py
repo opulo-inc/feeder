@@ -162,7 +162,7 @@ if __name__ == '__main__':
     output_directory = Path('stl-export')
     output_directory.mkdir(parents=True, exist_ok=True)
 
-    fdm_path = Path('../../../cad')
+    fdm_path = Path('../../../cad/FDM')
 
     exceptions: List[Exception] = []
 

@@ -59,35 +59,35 @@ jobs:
       run: |
         cd pcb/mobo
         rm -rf mobo/
-        kibot -c ../../../.github/workflows/scripts/kibot/config-4layer.kibot.yaml -e mobo.kicad_sch -b mobo.kicad_pcb -d mobo
+        kibot -c ../../.github/workflows/scripts/kibot/config-4layer.kibot.yaml -e mobo.kicad_sch -b mobo.kicad_pcb -d mobo
         zip -r -j mobo.zip mobo/
 
     - name: Generate Slot Export Files
       run: |
         cd pcb/feederFloor 
         rm -rf feeder-floor/     
-        kibot -c ../../../.github/workflows/scripts/kibot/config-2layer.kibot.yaml -e feederFloor.kicad_sch -b feederFloor.kicad_pcb -d slot
+        kibot -c ../../.github/workflows/scripts/kibot/config-2layer.kibot.yaml -e feederFloor.kicad_sch -b feederFloor.kicad_pcb -d slot
         zip -r -j slot.zip slot/
 
     - name: Generate Indexing Wheel Export Files
       run: |
         cd pcb/indexingWheel
         rm -rf indexing-wheel/     
-        kibot -c ../../../.github/workflows/scripts/kibot/config-2layer.kibot.yaml -e indexingWheel.kicad_sch -b indexingWheel.kicad_pcb -d indexing-wheel
+        kibot -c ../../.github/workflows/scripts/kibot/config-2layer.kibot.yaml -e indexingWheel.kicad_sch -b indexingWheel.kicad_pcb -d indexing-wheel
         zip -r -j indexing-wheel.zip indexing-wheel/
 
     - name: Generate Light Diffusion Export Files
       run: |
         cd pcb/light-diffusion 
         rm -rf light-diffusion/     
-        kibot -c ../../../.github/workflows/scripts/kibot/config-2layer.kibot.yaml -e light-diffusion.kicad_sch -b light-diffusion.kicad_pcb -d light-diffusion
+        kibot -c ../../.github/workflows/scripts/kibot/config-2layer.kibot.yaml -e light-diffusion.kicad_sch -b light-diffusion.kicad_pcb -d light-diffusion
         zip -r -j light-diffusion.zip light-diffusion/
 
     - name: Generate Photon 8mm Fiducial Export Files
       run: |
         cd pcb/photon-8mm-fid
         rm -rf photon-8mm-fid/     
-        kibot -c ../../../.github/workflows/scripts/kibot/config-2layer.kibot.yaml -e photon-8mm-fid.kicad_sch -b photon-8mm-fid.kicad_pcb -d photon-8mm-fid
+        kibot -c ../../.github/workflows/scripts/kibot/config-2layer.kibot.yaml -e photon-8mm-fid.kicad_sch -b photon-8mm-fid.kicad_pcb -d photon-8mm-fid
         zip -r -j photon-8mm-fid.zip photon-8mm-fid/
 
     - name: Zip PCB Export Files for Artifacts  
