@@ -38,22 +38,22 @@ jobs:
         echo "COMMIT = ${COMMIT}"    
         echo "ref: ${{ github.ref }}"
         echo "default: ${{ env.default }}"
-        sed -i "s!<<hash>>!${COMMIT}!" pnp/pcb/mobo/mobo.kicad_pcb
-        sed -i "s!<<hash>>!${COMMIT}!" pnp/pcb/ring-light/ringLight.kicad_pcb
-        sed -i "s!<<hash>>!${COMMIT}!" pnp/pcb/staging-plate/staging-plate.kicad_pcb
-        sed -i "s!<<hash>>!${COMMIT}!" pnp/pcb/datum/datum.kicad_pcb
-        sed -i "s!<<hash>>!${COMMIT}!" pnp/pcb/ftp/ftp.kicad_pcb
+        sed -i "s!<<hash>>!${COMMIT}!" pcb/mobo/mobo.kicad_pcb
+        sed -i "s!<<hash>>!${COMMIT}!" pcb/feederFloor/feederFloor.kicad_pcb
+        sed -i "s!<<hash>>!${COMMIT}!" pcb/indexingWheel/indexingWheel.kicad_pcb
+        sed -i "s!<<hash>>!${COMMIT}!" pcb/light-diffusion/light-diffusion.kicad_pcb
+        sed -i "s!<<hash>>!${COMMIT}!" pcb/photon-8mm-fid/photon-8mm-fid.kicad_pcb
 
     - name: Update the PCBs with the git hash and BETA.
       if: steps.extract_branch.outputs.branch != env.main_branch
       run: |
         export COMMIT=$(git rev-parse --short HEAD)
         echo "COMMIT = ${COMMIT}"
-        sed -i "s!<<hash>>!BETA-${COMMIT}!" pnp/pcb/mobo/mobo.kicad_pcb
-        sed -i "s!<<hash>>!BETA-${COMMIT}!" pnp/pcb/ring-light/ringLight.kicad_pcb
-        sed -i "s!<<hash>>!BETA-${COMMIT}!" pnp/pcb/staging-plate/staging-plate.kicad_pcb
-        sed -i "s!<<hash>>!BETA-${COMMIT}!" pnp/pcb/datum/datum.kicad_pcb
-        sed -i "s!<<hash>>!BETA-${COMMIT}!" pnp/pcb/ftp/ftp.kicad_pcb
+        sed -i "s!<<hash>>!BETA-${COMMIT}!" pcb/mobo/mobo.kicad_pcb
+        sed -i "s!<<hash>>!BETA-${COMMIT}!" pcb/feederFloor/feederFloor.kicad_pcb
+        sed -i "s!<<hash>>!BETA-${COMMIT}!" pcb/indexingWheel/indexingWheel.kicad_pcb
+        sed -i "s!<<hash>>!BETA-${COMMIT}!" pcb/light-diffusion/light-diffusion.kicad_pcb
+        sed -i "s!<<hash>>!BETA-${COMMIT}!" pcb/photon-8mm-fid/photon-8mm-fid.kicad_pcb
 
     - name: Generate Mobo Export Files
       run: |
