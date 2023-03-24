@@ -8,7 +8,7 @@ jobs:
   export-ecad:
     name: Export ECAD
     runs-on: ubuntu-latest
-    container: setsoft/kicad_auto:dev_k6
+    container: setsoft/kicad_auto:dev_k7
       
     steps:
 
