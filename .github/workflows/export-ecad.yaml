@@ -53,7 +53,7 @@ jobs:
         sed -i "s!<<hash>>!BETA-${COMMIT}!" pcb/feederFloor/feederFloor.kicad_pcb
         sed -i "s!<<hash>>!BETA-${COMMIT}!" pcb/indexingWheel/indexingWheel.kicad_pcb
         sed -i "s!<<hash>>!BETA-${COMMIT}!" pcb/light-diffusion/light-diffusion.kicad_pcb
-        sed -i "s!<<hash>>!BETA-${COMMIT}!" pcb/photon-8mm-fid/photon-8mm-fid.kicad_pcb
+        sed -i "s!<<hash>>!BETA-${COMMIT}!" pcb/photon-8mm-fid/fiducialBoard.kicad_pcb
 
     - name: Generate Mobo Export Files
       run: |
