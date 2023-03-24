@@ -87,7 +87,7 @@ jobs:
       run: |
         cd pcb/photon-8mm-fid
         rm -rf photon-8mm-fid/     
-        kibot -c ../../.github/workflows/scripts/kibot/config-2layer.kibot.yaml -e photon-8mm-fid.kicad_sch -b photon-8mm-fid.kicad_pcb -d photon-8mm-fid
+        kibot -c ../../.github/workflows/scripts/kibot/config-2layer.kibot.yaml -e fiducialBoard.kicad_sch -b fiducialBoard.kicad_pcb -d photon-8mm-fid
         zip -r -j photon-8mm-fid.zip photon-8mm-fid/
 
     - name: Zip PCB Export Files for Artifacts  
