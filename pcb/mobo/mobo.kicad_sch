@@ -7134,7 +7134,7 @@
     (property "Value" "47uH" (at 245.11 130.4857 90)
       (effects (font (size 1.27 1.27)))
     )
-    (property "Footprint" "Inductor_SMD:L_Sunlord_SWPA6045S" (at 245.11 132.08 0)
+    (property "Footprint" "Inductor_SMD:L_Sunlord_SWPA5020S" (at 245.11 132.08 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 245.11 132.08 0)
