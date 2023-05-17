@@ -4769,6 +4769,31 @@
     )
   )
 
+  (symbol (lib_id "power:GND") (at 189.23 129.54 0) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no)
+    (uuid 09e4ec47-80fd-459f-bed0-ce1fa3cbbf64)
+    (property "Reference" "#PWR01" (at 189.23 135.89 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Value" "GND" (at 189.357 133.9342 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" "" (at 189.23 129.54 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "" (at 189.23 129.54 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid 97981d33-20b7-487e-89ac-33cbcb6db1ad))
+    (instances
+      (project "mobo"
+        (path "/e502d1d5-04b0-4d4b-b5c3-8c52d09668e7"
+          (reference "#PWR01") (unit 1)
+        )
+      )
+    )
+  )
+
   (symbol (lib_id "Device:R_Small") (at 217.17 106.68 90) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 0d0feeda-67ca-4054-bb4a-27b50ea94d02)
@@ -5050,6 +5075,31 @@
       (project "mobo"
         (path "/e502d1d5-04b0-4d4b-b5c3-8c52d09668e7"
           (reference "C8") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "power:+3V3") (at 189.23 124.46 0) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no)
+    (uuid 1ea8a199-818f-4f5f-8629-c8202f1ad20f)
+    (property "Reference" "#PWR02" (at 189.23 128.27 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Value" "+3V3" (at 189.611 120.0658 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" "" (at 189.23 124.46 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "" (at 189.23 124.46 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid 40adf663-73ed-4f84-9b80-98a8e7a9ad8b))
+    (instances
+      (project "mobo"
+        (path "/e502d1d5-04b0-4d4b-b5c3-8c52d09668e7"
+          (reference "#PWR02") (unit 1)
         )
       )
     )
@@ -6937,6 +6987,38 @@
       (project "mobo"
         (path "/e502d1d5-04b0-4d4b-b5c3-8c52d09668e7"
           (reference "#PWR0143") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "Device:C_Small") (at 189.23 127 180) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no)
+    (uuid c48de777-ee45-4414-b7b0-815ae82e678b)
+    (property "Reference" "C15" (at 194.31 124.46 0)
+      (effects (font (size 1.27 1.27)) (justify left))
+    )
+    (property "Value" "100n" (at 195.58 128.905 0)
+      (effects (font (size 1.27 1.27)) (justify left))
+    )
+    (property "Footprint" "Capacitor_SMD:C_0805_2012Metric" (at 189.23 127 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "~" (at 189.23 127 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "JLCPCB" "C49678" (at 189.23 127 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "LCSC" "C476766" (at 189.23 127 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid 088a1512-cf23-4bd6-ade4-f878fe491293))
+    (pin "2" (uuid 581875da-437b-4e9a-87dd-ee021ab17b66))
+    (instances
+      (project "mobo"
+        (path "/e502d1d5-04b0-4d4b-b5c3-8c52d09668e7"
+          (reference "C15") (unit 1)
         )
       )
     )
