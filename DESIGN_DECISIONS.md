@@ -48,6 +48,12 @@ The third reason is that with an encoder, we can move arbitrary distances. With 
 
 However, this all assumes that the encoder on the output wheel is comprised of a slotted PCB with a reflective sensor. Very thin encoder wheels and sensors exist, and might be a reasonable option for feeder tape positioning. We decided against this approach due to the lower resolution, cost, and likely need for customization that would make homebrew builds more difficult. They're also susceptible to errors due to light bleed.
 
+### Why glue the shaft collar to the Drive Wheel?
+
+Ideally, affixing the shaft collar to the Drive Wheel uses mechanical coupling, as glue can be finicky. We tried a screw-affixed design, but in order to have the screws fit without hitting the motor the PCB needed to be countersunk. That countersink added a bump to the opposite side of the board. When the shaft collar was mounted to it, we saw a very high sinusoidal variation in the tape position throughout the rotation of the wheel because the collar and wheel weren't coplanar anymore. Glue ended up being the most consistent approach in terms of tape positional accuracy.
+
+We used to have a  D-shaft cutout in the center of the wheel, we found that it was over-constraining the glueing process so we removed it. If we're going to glue, we should reference it to the outer profile of the teeth as much as possible, which is really what matters in this application.
+
 ## Peel Subsystem
 
 The Peel Subsystem is comprised of a standard N20 motor with a 1:210 gear ratio, with a printed worm gear attached to the output shaft. This worm gear interfaces with a gearbox used for peeling the film. The two straight gears that perform the peeling are mounted with a positive interface, ensuring the frame holding them in place is constantly applying pressure between them. This interface is what grips the film and pulls it away from the tape.
