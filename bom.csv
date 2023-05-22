@@ -15,11 +15,11 @@ M3x12mm-flat-head,https://www.mcmaster.com/mvD/Contents/gfx/ImageCache/920/92095
 M3x14mm-flat-head,https://www.mcmaster.com/mvD/Contents/gfx/ImageCache/920/92095A168p1-b01-digitall@2x_636621121852034289.png,2,FST,https://www.mcmaster.com/92095A168/,,,
 M3x15mm-flat-head,https://www.mcmaster.com/mvC/Contents/gfx/ImageCache/912/91292a115-@4x_637619456157301135.png,9,FST,https://www.mcmaster.com/91292A115,,,
 M5x10mm-socket-head,https://www.mcmaster.com/mvD/Contents/gfx/ImageCache/901/90128a234-@4x_637648793587366175.png,1,FST,https://www.mcmaster.com/90128A234/,,,ISO4762
-mobo,,1,PCA,,,,Click link above to download source
-slot,,1,PCA,,,,Click link above to download source
-drive-wheel,,1,PCB,,,,Click link above to download source
-light-diffusion,,1,PCB,,,,Click link above to download source
-photon-8mm-fid,,1,PCB,,,,Click link above to download source
+mobo,,1,PCA,,,,"Click link above to download source. 1.6mm PCB, 2 layer, Black Soldermask, White Silkscreen, ENIG "
+slot,,1,PCA,,,,"Click link above to download source. 1.6mm PCB, 2, layer, Black Soldermask, White Silkscreen, ENIG"
+drive-wheel,,1,PCB,,,,"Click link above to download source. 1mm PCB, 2 layer, Any Color Soldermask, White Silkscreen, ENIG"
+light-diffusion,,1,PCB,,,,"Click link above to download source. 0.6mm PCB, 2 layer, Matte Black Soldermask. Board has no silkscreen or copper. Only soldermask on the front and back."
+photon-8mm-fid,,1,PCB,,,,"Click link above to download source. 1mm PCB, 2 layer, Matte Black Soldermask, White Silkscreen, ENIG"
 slot-harness,,1,CHA,,,,Click link above to download source
 n20-motor,https://www.makerfabs.com/image/cache/makerfabs/N20%20DC%20Gear%20Motor/N20%20DC%20Gear%20Motor_3-1000x750.jpg,4,MISC,https://www.servocity.com/110-rpm-micro-gear-motor/,,,1:210 gear ratio.
 right-angle-n20,https://sharvielectronics.com/wp-content/uploads/2022/06/N20-3V-50-RPM-Micro-Metal-Gear-Motor-With-Encoder_-Sharvielectronics.jpg,2,MISC,https://www.aliexpress.com/w/wholesale-worm-n20-encoder.html?catId=0&initiative_id=SB_20230324123628&SearchText=worm+n20+encoder,,,14-tick per revolution encoder. 1:1030 gear ratio gearbox.
