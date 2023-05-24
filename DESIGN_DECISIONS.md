@@ -146,3 +146,21 @@ An STM32F031C6T6 was chosen for the feeder's microcontroller. There were a few r
 As a bonus, the chip's sibling, the STM32F031K6U6, has the same die as the C6T6 but with a smaller package. This means that by using the smaller chip's GPIO count as a constraint, we have a binary-compatible drop in replacement part to help alleviate availability issues.
 
 Although a separate EEPROM chip or a software-defined UUID could solve the same problem as having a factory-burned UUID, having it in the chip prevents UUID erasure upon reprogramming, and fewer parts in the BOM.
+
+## ID Fiducial Board
+
+There's a small board on the nose of the feeder with three fiducials on it. The center one is for identifying location, and the other, smaller fiducials on either side identify what type of feeder it is.
+
+**This is not currently used. This board was shipped with all feeder hardware to support potential future features.**
+
+### Can it be used for setting pick position?
+
+It could be used for *generalized* pick position. In general, there's too much variability in the precise placement of the PCB in the print from human error and print defects. If OpenPnP can scan for the fiducial and then apply a general offset to find the broad pick position, computer vision can find the precise pick position, provided it's paper tape. Plastic tape would likely need the precise pick position set manually.
+
+### Can it be used for identifying feeder width?
+
+Absolutely! The distance the two smaller fiducials are away from the larger centered one encodes what feeder type, or width, it is. Ideally the firmware image is the same across feeder widths, and it can't hurt to have the fiducial encode that information. OpenPnP doesn't actually care that much what width a feeder is if the fiducial <-> pick position offset is set correctly.
+
+### Can it be used for setting slot location?
+
+It can, but it might not be useful in most circumstances. In a world where slots are always mounted in the same location, OpenPnP could always know where the slot locations are on a LumenPnP. However, if builders have a different slot setup, or folks trying to squeeze out every last mm of feeder space are adjusting their slot locations to accommodate wider feeders, it could be useful. OpenPnP could use vision across a given Y position and in conjunction with the slot addresses of the feeders it found over RS485, automatically set slot positions.
