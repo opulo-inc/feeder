@@ -41,29 +41,7 @@ def process_file(cad_file: Path):
 
     doc = FreeCAD.open(str(cad_file.absolute()))
 
-    bom = open("../../../bom.csv")
-
-    csv_reader = csv.reader(bom, delimiter=',')
-    count = 0
-    flag = False
-    for row in csv_reader:
-        if row[0] == cad_file.name[:-6]:
-            print("found a part!")
-            print(row[0])
-            count = row[2]
-            print(count)
-            if count != "-" and count != "":
-                flag = True
-                break
-
-    #generates name with quantity
-    if flag:
-        name = cad_file.name[:-6] + "_" + count + "x"
-        print("making count name")
-    else:
-        name = cad_file.name[:-6]
-        print("making no count name")
-
+    name = cad_file.name[:-6]
 
     # # Getting file name from part number emboss
     # name_options = [obj.String for obj in doc.Objects if
