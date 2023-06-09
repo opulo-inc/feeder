@@ -144,7 +144,17 @@ jobs:
     - name: Generate BOM HTML Page for Workflow Dispatch
       if: github.event_name != 'release'
       run:  |
-            python3 .github/workflows/scripts/export-bom.py ${SHORT_SHA}         
+            python3 .github/workflows/scripts/export-bom.py ${SHORT_SHA}    
+
+    - name: Download PCB Images
+      uses: actions/download-artifact@v2
+      with:
+        name: pcb-images
+
+    - name: Unzip PCB Images
+      run: |
+        mkdir pcb-images
+        unzip pcb-images.zip -d ./pcb-images    
 
     - name: Install FreeCAD Python library
       run:  |
@@ -200,21 +210,16 @@ jobs:
         export DISPLAY=:5
         python3 .github/workflows/scripts/generate-stl-img.py ${SHORT_SHA}
 
-    - name: Download PCB Images
-      uses: actions/download-artifact@v2
-      with:
-        name: pcb-images
-
     - name: Zip BOM Directory for Workflow Dispatch
       if: github.event_name != 'release'
       run: |
-        zip -r Feeder-BOM.zip Feeder-${SHORT_SHA} Feeder-${SHORT_SHA}/img /home/runner/work/feeder/feeder/pcb-images.zip
+        zip -r Feeder-BOM.zip Feeder-${SHORT_SHA} Feeder-${SHORT_SHA}/img ./pcb-images
         ls -al
 
     - name: Zip BOM Directory for Release
       if: github.event_name == 'release'
       run: |
-        zip -r Feeder-BOM-${{ github.event.release.tag_name }}.zip Feeder-${{ github.event.release.tag_name }} Feeder-${{ github.event.release.tag_name }}/img pcb-images
+        zip -r Feeder-BOM-${{ github.event.release.tag_name }}.zip Feeder-${{ github.event.release.tag_name }} Feeder-${{ github.event.release.tag_name }}/img ./pcb-images
 
     - name: Upload BOM results
       if: github.event_name != 'release'
