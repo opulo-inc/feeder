@@ -123,6 +123,8 @@ jobs:
   generate-bom:
     name: Generate BOM
     runs-on: ubuntu-20.04
+    needs:
+      export-ecad
     steps:
     - name: Generate Short SHA Environment Variable
       run: echo "SHORT_SHA=`echo ${GITHUB_SHA} | cut -c1-8`" >> $GITHUB_ENV
@@ -203,13 +205,10 @@ jobs:
       with:
         name: pcb-images
 
-    - name: Move PCB Images
-      run: |
-
     - name: Zip BOM Directory for Workflow Dispatch
       if: github.event_name != 'release'
       run: |
-        zip -r Feeder-BOM.zip Feeder-${SHORT_SHA} Feeder-${SHORT_SHA}/img pcb-images
+        zip -r Feeder-BOM.zip Feeder-${SHORT_SHA} Feeder-${SHORT_SHA}/img /home/runner/work/feeder/feeder/pcb-images.zip
         ls -al
 
     - name: Zip BOM Directory for Release
