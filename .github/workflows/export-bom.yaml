@@ -151,11 +151,6 @@ jobs:
       with:
         name: pcb-images
 
-    - name: Unzip PCB Images
-      run: |
-        mkdir pcb-images
-        unzip pcb-images.zip -d ./pcb-images    
-
     - name: Install FreeCAD Python library
       run:  |
         sudo apt -qq update
@@ -213,6 +208,7 @@ jobs:
     - name: Zip BOM Directory for Workflow Dispatch
       if: github.event_name != 'release'
       run: |
+        ls -al
         zip -r Feeder-BOM.zip Feeder-${SHORT_SHA} Feeder-${SHORT_SHA}/img ./pcb-images
         ls -al
 
