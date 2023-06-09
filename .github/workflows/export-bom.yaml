@@ -107,8 +107,8 @@ jobs:
         mkdir pcb-images
         cp pcb/mobo/mobo/mobo-top.png pcb-images/mobo.png
         cp pcb/feederFloor/slot/feederFloor-top.png pcb-images/slot.png
-        cp pcb/indexingWheel/indexingWheel/indexingWheel-top.png pcb-images/indexing-wheel.png
-        cp pcb/photon-8mm-fid/photon-8mm-fid/fiducialBoard-top.png pcb-images/photon-8mm-fid.png
+        cp pcb/indexingWheel/indexing-wheel/indexingWheel-top.png pcb-images/indexing-wheel.png
+        cp pcb/light-diffusion/light-diffusion/light-diffusion-top.png pcb-images/light-diffusion-top.png
         cp pcb/photon-8mm-fid/photon-8mm-fid/fiducialBoard-top.png pcb-images/photon-8mm-fid.png
         zip -r -j pcb-images.zip pcb-images/
 
