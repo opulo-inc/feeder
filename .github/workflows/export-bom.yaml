@@ -165,7 +165,7 @@ jobs:
       run: |
         ls -al
         ls -al pcb-images
-        mv pcb-images/* Feeder-${SHORT_SHA}/img/
+        mv pcb-images/*.png Feeder-${SHORT_SHA}/img/
         ls -al Feeder-${SHORT_SHA}/img/
         
     - name: Move PCB Images for Release
