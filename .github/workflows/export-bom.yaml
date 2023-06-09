@@ -146,23 +146,30 @@ jobs:
       run:  |
             python3 .github/workflows/scripts/export-bom.py ${SHORT_SHA}    
 
-    - name: Download PCB Images
+    - name: Download PCB Images for Workflow Dispatch
+      if: github.event_name != 'release'
       uses: actions/download-artifact@v2
       with:
         name: pcb-images
+        path: Feeder-${SHORT_SHA}/img/
+
+    - name: Download PCB Images for Release
+      if: github.event_name == 'release'
+      uses: actions/download-artifact@v2
+      with:
+        name: pcb-images
+        path: Feeder-${{ github.event.release.tag_name }}/img/
 
     - name: Move PCB Images for Workflow Dispatch
       if: github.event_name != 'release'
       run: |
         ls -al
-        mv pcb-images/* Feeder-${SHORT_SHA}/img
-
+        
     - name: Move PCB Images for Release
       if: github.event_name == 'release'
       run: |
         ls -al
-        mv pcb-images/* Feeder-${{ github.event.release.tag_name }}/img
-
+      
     - name: Install FreeCAD Python library
       run:  |
         sudo apt -qq update
