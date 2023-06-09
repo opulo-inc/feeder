@@ -107,8 +107,8 @@ jobs:
         mkdir pcb-images
         cp pcb/mobo/mobo/mobo-top.png pcb-images/mobo.png
         cp pcb/feederFloor/slot/feederFloor-top.png pcb-images/slot.png
-        cp pcb/indexingWheel/indexing-wheel/indexingWheel-top.png pcb-images/indexing-wheel.png
-        cp pcb/light-diffusion/light-diffusion/light-diffusion-top.png pcb-images/light-diffusion-top.png
+        cp pcb/indexingWheel/indexing-wheel/indexingWheel-top.png pcb-images/drive-wheel.png
+        cp pcb/light-diffusion/light-diffusion/light-diffusion-top.png pcb-images/light-diffusion.png
         cp pcb/photon-8mm-fid/photon-8mm-fid/fiducialBoard-top.png pcb-images/photon-8mm-fid.png
         zip -r -j pcb-images.zip pcb-images/
 
@@ -150,6 +150,14 @@ jobs:
       uses: actions/download-artifact@v2
       with:
         name: pcb-images
+
+    - name: Move PCB Images for Workflow Dispatch
+      run: |
+        mv pcb-images/* Feeder-${SHORT_SHA}/img
+
+    - name: Move PCB Images for Release
+      run: |
+        mv pcb-images/* Feeder-${{ github.event.release.tag_name }}/img
 
     - name: Install FreeCAD Python library
       run:  |
