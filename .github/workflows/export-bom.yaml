@@ -146,29 +146,36 @@ jobs:
       run:  |
             python3 .github/workflows/scripts/export-bom.py ${SHORT_SHA}    
 
-    - name: Download PCB Images for Workflow Dispatch
+    - name: Make folder to Host PCB Images
+      run: |
+        mkdir pcb-images
+        ls -al
+        cd pcb-images
+        ls -al
+
+    - name: Download PCB Images
       if: github.event_name != 'release'
       uses: actions/download-artifact@v2
       with:
         name: pcb-images
-        path: Feeder-${SHORT_SHA}/img/
-
-    - name: Download PCB Images for Release
-      if: github.event_name == 'release'
-      uses: actions/download-artifact@v2
-      with:
-        name: pcb-images
-        path: Feeder-${{ github.event.release.tag_name }}/img/
+        path: pcb-images/
 
     - name: Move PCB Images for Workflow Dispatch
       if: github.event_name != 'release'
       run: |
         ls -al
+        ls -al pcb-images
+        mv pcb-images/* Feeder-${SHORT_SHA}/img/
+        ls -al Feeder-${SHORT_SHA}/img/
         
     - name: Move PCB Images for Release
       if: github.event_name == 'release'
       run: |
         ls -al
+        ls -al pcb-images
+        mv pcb-images/* Feeder-${{ github.event.release.tag_name }}/img/
+        ls -al Feeder-${{ github.event.release.tag_name }}/img/
+
       
     - name: Install FreeCAD Python library
       run:  |
@@ -228,13 +235,13 @@ jobs:
       if: github.event_name != 'release'
       run: |
         ls -al
-        zip -r Feeder-BOM.zip Feeder-${SHORT_SHA} Feeder-${SHORT_SHA}/img ./pcb-images
+        zip -r Feeder-BOM.zip Feeder-${SHORT_SHA} Feeder-${SHORT_SHA}/img
         ls -al
 
     - name: Zip BOM Directory for Release
       if: github.event_name == 'release'
       run: |
-        zip -r Feeder-BOM-${{ github.event.release.tag_name }}.zip Feeder-${{ github.event.release.tag_name }} Feeder-${{ github.event.release.tag_name }}/img ./pcb-images
+        zip -r Feeder-BOM-${{ github.event.release.tag_name }}.zip Feeder-${{ github.event.release.tag_name }} Feeder-${{ github.event.release.tag_name }}/img
 
     - name: Upload BOM results
       if: github.event_name != 'release'
