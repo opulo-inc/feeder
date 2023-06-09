@@ -145,37 +145,6 @@ jobs:
       if: github.event_name != 'release'
       run:  |
             python3 .github/workflows/scripts/export-bom.py ${SHORT_SHA}    
-
-    - name: Make folder to Host PCB Images
-      run: |
-        mkdir pcb-images
-        ls -al
-        cd pcb-images
-        ls -al
-
-    - name: Download PCB Images
-      if: github.event_name != 'release'
-      uses: actions/download-artifact@v2
-      with:
-        name: pcb-images
-        path: pcb-images/
-
-    - name: Move PCB Images for Workflow Dispatch
-      if: github.event_name != 'release'
-      run: |
-        ls -al
-        ls -al pcb-images
-        mv pcb-images/*.png Feeder-${SHORT_SHA}/img/
-        ls -al Feeder-${SHORT_SHA}/img/
-        
-    - name: Move PCB Images for Release
-      if: github.event_name == 'release'
-      run: |
-        ls -al
-        ls -al pcb-images
-        mv pcb-images/* Feeder-${{ github.event.release.tag_name }}/img/
-        ls -al Feeder-${{ github.event.release.tag_name }}/img/
-
       
     - name: Install FreeCAD Python library
       run:  |
@@ -230,6 +199,38 @@ jobs:
         Xvfb :5 -screen 0 800x600x24 &
         export DISPLAY=:5
         python3 .github/workflows/scripts/generate-stl-img.py ${SHORT_SHA}
+        
+        
+    - name: Make folder to Host PCB Images
+      run: |
+        mkdir pcb-images
+        ls -al
+        cd pcb-images
+        ls -al
+
+    - name: Download PCB Images
+      if: github.event_name != 'release'
+      uses: actions/download-artifact@v2
+      with:
+        name: pcb-images
+        path: pcb-images/
+
+    - name: Move PCB Images for Workflow Dispatch
+      if: github.event_name != 'release'
+      run: |
+        ls -al
+        ls -al pcb-images
+        mv pcb-images/*.png Feeder-${SHORT_SHA}/img/
+        ls -al Feeder-${SHORT_SHA}/img/
+        
+    - name: Move PCB Images for Release
+      if: github.event_name == 'release'
+      run: |
+        ls -al
+        ls -al pcb-images
+        mv pcb-images/* Feeder-${{ github.event.release.tag_name }}/img/
+        ls -al Feeder-${{ github.event.release.tag_name }}/img/
+        
 
     - name: Zip BOM Directory for Workflow Dispatch
       if: github.event_name != 'release'
