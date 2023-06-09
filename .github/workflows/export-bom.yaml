@@ -6,6 +6,120 @@ on:
     types: [ published ]
 
 jobs:
+
+  export-ecad:
+    name: Export ECAD
+    runs-on: ubuntu-latest
+    container: setsoft/kicad_auto:ki7
+      
+    steps:
+
+    - name: Generate Short SHA Environment Variable
+      run: echo "SHORT_SHA=`echo ${GITHUB_SHA} | cut -c1-8`" >> $GITHUB_ENV
+      
+    - name: Update system repositories, Install Required Libraries and Initialize git-lfs
+      run: |
+        apt update
+        apt -y install git git-lfs zip librsvg2-bin imagemagick
+        git lfs install
+
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+      with:
+        lfs: true
+        
+    - name: Extract branch name
+      shell: bash
+      run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
+      id: extract_branch            
+
+    - name: Update the PCBs with on default branch with git hash
+      if: github.event_name == 'release' || steps.extract_branch.outputs.branch == env.main_branch
+      run: |
+        export COMMIT=$(git rev-parse --short HEAD)
+        echo "COMMIT = ${COMMIT}"    
+        echo "ref: ${{ github.ref }}"
+        echo "default: ${{ env.default }}"
+        sed -i "s!<<hash>>!${COMMIT}!" pcb/mobo/mobo.kicad_pcb
+        sed -i "s!<<hash>>!${COMMIT}!" pcb/feederFloor/feederFloor.kicad_pcb
+        sed -i "s!<<hash>>!${COMMIT}!" pcb/indexingWheel/indexingWheel.kicad_pcb
+        sed -i "s!<<hash>>!${COMMIT}!" pcb/light-diffusion/light-diffusion.kicad_pcb
+        sed -i "s!<<hash>>!${COMMIT}!" pcb/photon-8mm-fid/photon-8mm-fid.kicad_pcb
+
+    - name: Update the PCBs with the git hash and BETA.
+      if: steps.extract_branch.outputs.branch != env.main_branch
+      run: |
+        export COMMIT=$(git rev-parse --short HEAD)
+        echo "COMMIT = ${COMMIT}"
+        sed -i "s!<<hash>>!BETA-${COMMIT}!" pcb/mobo/mobo.kicad_pcb
+        sed -i "s!<<hash>>!BETA-${COMMIT}!" pcb/feederFloor/feederFloor.kicad_pcb
+        sed -i "s!<<hash>>!BETA-${COMMIT}!" pcb/indexingWheel/indexingWheel.kicad_pcb
+        sed -i "s!<<hash>>!BETA-${COMMIT}!" pcb/light-diffusion/light-diffusion.kicad_pcb
+        sed -i "s!<<hash>>!BETA-${COMMIT}!" pcb/photon-8mm-fid/fiducialBoard.kicad_pcb
+
+    - name: Generate Mobo Export Files
+      run: |
+        cd pcb/mobo
+        rm -rf mobo/
+        kibot -c ../../.github/workflows/scripts/kibot/config-2layer.kibot.yaml -e mobo.kicad_sch -b mobo.kicad_pcb -d mobo
+        zip -r -j mobo.zip mobo/
+
+    - name: Generate Slot Export Files
+      run: |
+        cd pcb/feederFloor 
+        rm -rf feeder-floor/     
+        kibot -c ../../.github/workflows/scripts/kibot/config-2layer.kibot.yaml -e feederFloor.kicad_sch -b feederFloor.kicad_pcb -d slot
+        zip -r -j slot.zip slot/
+
+    - name: Generate Indexing Wheel Export Files
+      run: |
+        cd pcb/indexingWheel
+        rm -rf indexing-wheel/     
+        kibot -c ../../.github/workflows/scripts/kibot/config-2layer.kibot.yaml -e indexingWheel.kicad_sch -b indexingWheel.kicad_pcb -d indexing-wheel
+        zip -r -j indexing-wheel.zip indexing-wheel/
+
+    - name: Generate Light Diffusion Export Files
+      run: |
+        cd pcb/light-diffusion 
+        rm -rf light-diffusion/     
+        kibot -c ../../.github/workflows/scripts/kibot/config-2layer.kibot.yaml -e light-diffusion.kicad_sch -b light-diffusion.kicad_pcb -d light-diffusion
+        zip -r -j light-diffusion.zip light-diffusion/
+
+    - name: Generate Photon 8mm Fiducial Export Files
+      run: |
+        cd pcb/photon-8mm-fid
+        rm -rf photon-8mm-fid/     
+        kibot -c ../../.github/workflows/scripts/kibot/config-2layer.kibot.yaml -e fiducialBoard.kicad_sch -b fiducialBoard.kicad_pcb -d photon-8mm-fid
+        zip -r -j photon-8mm-fid.zip photon-8mm-fid/
+
+    - name: Zip PCB Export Files for Artifacts  
+      run: |
+        cd pcb/
+        zip -r -j Feeder-PCBs.zip photon-8mm-fid/photon-8mm-fid.zip light-diffusion/light-diffusion.zip indexingWheel/indexing-wheel.zip feederFloor/slot.zip mobo/mobo.zip
+
+    - name: Zip PCB Export Files for Release  
+      run: |
+        cd pcb/
+        zip -r -j Feeder-PCBs-${{ github.event.release.tag_name }}.zip photon-8mm-fid/photon-8mm-fid.zip light-diffusion/light-diffusion.zip indexingWheel/indexing-wheel.zip feederFloor/slot.zip mobo/mobo.zip
+
+    - name: Zip Top Images for BOM
+      run: |
+        mkdir pcb-images
+        cp pcb/mobo/mobo/mobo-top.png pcb-images/mobo.png
+        cp pcb/feederFloor/slot/feederFloor-top.png pcb-images/slot.png
+        cp pcb/indexingWheel/indexingWheel/indexingWheel-top.png pcb-images/indexing-wheel.png
+        cp pcb/photon-8mm-fid/photon-8mm-fid/fiducialBoard-top.png pcb-images/photon-8mm-fid.png
+        cp pcb/photon-8mm-fid/photon-8mm-fid/fiducialBoard-top.png pcb-images/photon-8mm-fid.png
+        zip -r -j pcb-images.zip pcb-images/
+
+    - name: Upload PCB Images as Artifacts
+      uses: actions/upload-artifact@v2
+      with:
+        name: pcb-images
+        path: pcb-images/
+        if-no-files-found: error
+        retention-days: 60
+
   generate-bom:
     name: Generate BOM
     runs-on: ubuntu-20.04
@@ -84,18 +198,26 @@ jobs:
         export DISPLAY=:5
         python3 .github/workflows/scripts/generate-stl-img.py ${SHORT_SHA}
 
+    - name: Download PCB Images
+      uses: actions/download-artifact@v2
+      with:
+        name: pcb-images
+
+    - name: Move PCB Images
+      run: |
+
     - name: Zip BOM Directory for Workflow Dispatch
       if: github.event_name != 'release'
       run: |
-        zip -r Feeder-BOM.zip Feeder-${SHORT_SHA} Feeder-${SHORT_SHA}/img 
+        zip -r Feeder-BOM.zip Feeder-${SHORT_SHA} Feeder-${SHORT_SHA}/img pcb-images
         ls -al
 
     - name: Zip BOM Directory for Release
       if: github.event_name == 'release'
       run: |
-        zip -r Feeder-BOM-${{ github.event.release.tag_name }}.zip Feeder-${{ github.event.release.tag_name }} Feeder-${{ github.event.release.tag_name }}/img
+        zip -r Feeder-BOM-${{ github.event.release.tag_name }}.zip Feeder-${{ github.event.release.tag_name }} Feeder-${{ github.event.release.tag_name }}/img pcb-images
 
-    - name: upload BOM results
+    - name: Upload BOM results
       if: github.event_name != 'release'
       uses: actions/upload-artifact@v2
       with:
