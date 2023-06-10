@@ -106,9 +106,9 @@ for version in versions:
                 while column < len(row):
 
                     # handling images
-                    if column == 1 and row[3] != "FDM":
+                    if column == 1 and row[3] != "FDM" and row[3] != "PCB" and row[3] != "PCA":
                         f.write("<th><img src='" + row[column] + "' /></th>")
-                    elif column == 1 and (row[3] == "FDM" or row[3] == "PCB"):
+                    elif column == 1 and (row[3] == "FDM" or row[3] == "PCB" or row[3] == "PCA"):
                         f.write("<th><img src='img/" + row[0] + ".png' /></th>")
 
                     # handling links
