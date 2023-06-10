@@ -120,6 +120,11 @@ jobs:
         if-no-files-found: error
         retention-days: 60
 
+    - uses: actions/cache@v3
+      with:
+        path: pcb-images/  # Note that this path is not influenced by working-directory set in defaults, for example
+        key: 0042E1DE88
+
   generate-bom:
     name: Generate BOM
     runs-on: ubuntu-20.04
@@ -191,7 +196,6 @@ jobs:
         export DISPLAY=:5
         python3 .github/workflows/scripts/generate-stl-img.py ${{ github.event.release.tag_name }}
 
-
     - name: Generate STL Images for Workflow Dispatch
       if: github.event_name != 'release'
       run: |
@@ -200,7 +204,6 @@ jobs:
         export DISPLAY=:5
         python3 .github/workflows/scripts/generate-stl-img.py ${SHORT_SHA}
         
-        
     - name: Make folder to Host PCB Images
       run: |
         mkdir pcb-images
@@ -208,12 +211,17 @@ jobs:
         cd pcb-images
         ls -al
 
-    - name: Download PCB Images
-      if: github.event_name != 'release'
-      uses: actions/download-artifact@v2
+    - uses: actions/cache@v3
       with:
-        name: pcb-images
-        path: pcb-images/
+        path: pcb-images
+        key: 0042E1DE88
+
+    # - name: Download PCB Images
+    #   if: github.event_name != 'release'
+    #   uses: actions/download-artifact@v2
+    #   with:
+    #     name: pcb-images
+    #     path: pcb-images/
 
     - name: Move PCB Images for Workflow Dispatch
       if: github.event_name != 'release'
