@@ -120,11 +120,6 @@ jobs:
         if-no-files-found: error
         retention-days: 60
 
-    - uses: actions/cache@v3
-      with:
-        path: pcb-images/  # Note that this path is not influenced by working-directory set in defaults, for example
-        key: ${{ runner.os }}-${{ hashFiles('README.md') }}
-
   generate-bom:
     name: Generate BOM
     runs-on: ubuntu-20.04
@@ -211,23 +206,12 @@ jobs:
         cd pcb-images
         ls -al
 
-    - uses: actions/cache@v3
+    - name: Download PCB Images
+      if: github.event_name != 'release'
+      uses: actions/download-artifact@v2
       with:
-        path: pcb-images
-        key: ${{ runner.os }}-${{ hashFiles('README.md') }}
-
-    - name: What Did We download?
-      run: |
-        ls -al
-        ls -al pcb-images/
-
-
-    # - name: Download PCB Images
-    #   if: github.event_name != 'release'
-    #   uses: actions/download-artifact@v2
-    #   with:
-    #     name: pcb-images
-    #     path: pcb-images/
+        name: pcb-images
+        path: pcb-images/
 
 
 
