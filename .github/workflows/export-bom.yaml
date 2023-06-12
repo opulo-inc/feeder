@@ -123,7 +123,7 @@ jobs:
     - uses: actions/cache@v3
       with:
         path: pcb-images/  # Note that this path is not influenced by working-directory set in defaults, for example
-        key: ${{ runner.os }}-build-${{ env.cache-name }}
+        key: ${{ runner.os }}-${{ hashFiles('README.md') }}
 
   generate-bom:
     name: Generate BOM
@@ -214,7 +214,13 @@ jobs:
     - uses: actions/cache@v3
       with:
         path: pcb-images
-        key: ${{ runner.os }}-build-${{ env.cache-name }}
+        key: ${{ runner.os }}-${{ hashFiles('README.md') }}
+
+    - name: What Did We download?
+      run: |
+        ls -al
+        ls -al pcb-images/
+
 
     # - name: Download PCB Images
     #   if: github.event_name != 'release'
@@ -222,6 +228,8 @@ jobs:
     #   with:
     #     name: pcb-images
     #     path: pcb-images/
+
+
 
     - name: Move PCB Images for Workflow Dispatch
       if: github.event_name != 'release'
