@@ -16,7 +16,8 @@ else:
 versions = [
     ["8mm", "bom-8.csv"], 
     ["12mm", "bom-12.csv"], 
-    ["16mm", "bom-16.csv"]
+    ["16mm", "bom-16.csv"],
+    ["24mm", "bom-24.csv"]
 ]
 
 for version in versions:
