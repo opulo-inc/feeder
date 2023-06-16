@@ -10,7 +10,7 @@ spool-holder,,1,FDM,Download all 3D printed parts at the link at the top of the 
 thimble,,1,FDM,Download all 3D printed parts at the link at the top of the page.,,,
 slot-bracket,,1,FDM,Download all 3D printed parts at the link at the top of the page.,,,
 tape-guide-8-12,,1,FDM,Download all 3D printed parts at the link at the top of the page.,,Yes,Replaces the spool arm and thimble. Used to guide tape into feeder for spools mounted beneath the machine.
-"PLA-filament ",https://cdn.shopify.com/s/files/1/0570/4256/7355/files/filament.png?v=1686314492,1.2,FIL,https://www.microcenter.com/product/611532/inland-175mm-black-pla-3d-printer-filament-1kg-spool-(22-lbs),,,Units in kg. Print both nozzle-rack and 2x z-gantry in a black color. Print top-light-mount and bottom-light-mount in a white color.
+PLA-filament ,https://cdn.shopify.com/s/files/1/0570/4256/7355/files/filament.png?v=1686314492,1.2,FIL,https://www.microcenter.com/product/611532/inland-175mm-black-pla-3d-printer-filament-1kg-spool-(22-lbs),,,Units in kg. Print both nozzle-rack and 2x z-gantry in a black color. Print top-light-mount and bottom-light-mount in a white color.
 M5-t-slot-nut,https://cdn.shopify.com/s/files/1/0570/4256/7355/files/M5-tslot-nut.jpg?v=1686314676,1,FST,https://www.amazon.com/Fastener-Nickel-Plated-Sliding-Aluminum-Profile/dp/B086MKNYDS/ref=sxin_16_pa_sp_search_thematic_sspa,,,
 M3x14mm-flat-head,https://cdn.shopify.com/s/files/1/0570/4256/7355/files/M3x14mm.png?v=1686314903,3,FST,https://www.mcmaster.com/91294A133/,,,
 M5x10mm-socket-head,https://cdn.shopify.com/s/files/1/0570/4256/7355/files/M5x10mm.png?v=1686314995,1,FST,https://www.mcmaster.com/90128A234/,,,ISO4762
@@ -22,6 +22,6 @@ drive-wheel,,1,PCB,,,,Click link above to download source
 light-diffusion,,1,PCB,,,,Click link above to download source
 photon-8mm-fid,,1,PCB,,,,Click link above to download source
 slot-harness,,1,CHA,,,,Click link above to download source
-n20-motor,https://cdn.shopify.com/s/files/1/0570/4256/7355/files/n20.jpg?v=1686329653,4,MISC,https://www.servocity.com/110-rpm-micro-gear-motor/,,,1:210 gear ratio.
-right-angle-n20,https://cdn.shopify.com/s/files/1/0570/4256/7355/files/right-angle-n20.jpg?v=1686329653,2,MISC,https://www.aliexpress.com/w/wholesale-worm-n20-encoder.html?catId=0&initiative_id=SB_20230324123628&SearchText=worm+n20+encoder,,,14-tick per revolution encoder. 1:1030 gear ratio gearbox.
-shaft-collar,https://cdn.shopify.com/s/files/1/0570/4256/7355/files/shaft-collar.jpg?v=1686329653,2,MISC,https://www.amazon.com/gp/product/B01EA912P8/ref=ppx_yo_dt_b_asin_title_o09_s00?ie=UTF8,,,
+n20-motor,https://cdn.shopify.com/s/files/1/0570/4256/7355/files/n20.jpg?v=1686329653,1,MISC,https://www.servocity.com/110-rpm-micro-gear-motor/,,,1:210 gear ratio.
+right-angle-n20,https://cdn.shopify.com/s/files/1/0570/4256/7355/files/right-angle-n20.jpg?v=1686329653,1,MISC,https://www.aliexpress.com/w/wholesale-worm-n20-encoder.html?catId=0&initiative_id=SB_20230324123628&SearchText=worm+n20+encoder,,,14-tick per revolution encoder. 1:1030 gear ratio gearbox.
+shaft-collar,https://cdn.shopify.com/s/files/1/0570/4256/7355/files/shaft-collar.jpg?v=1686329653,1,MISC,https://www.amazon.com/gp/product/B01EA912P8/ref=ppx_yo_dt_b_asin_title_o09_s00?ie=UTF8,,,
