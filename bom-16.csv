@@ -2,12 +2,12 @@ Part Name,Image,Quantity,Part Type,Source 1,Source 2,Optional,Note
 frame-16,,1,FDM,Download all 3D printed parts at the link at the top of the page.,,,
 drive-motor-bracket,,1,FDM,Download all 3D printed parts at the link at the top of the page.,,,
 drive-motor-cover,,1,FDM,Download all 3D printed parts at the link at the top of the page.,,,
-peel-gear-frame-16,,1,FDM,Download all 3D printed parts at the link at the top of the page.,,,
-peel-gear-16,,2,FDM,Download all 3D printed parts at the link at the top of the page.,,,
+peel-gear-frame-2u,,1,FDM,Download all 3D printed parts at the link at the top of the page.,,,
+peel-gear-2u,,2,FDM,Download all 3D printed parts at the link at the top of the page.,,,
 peel-worm-gear,,1,FDM,Download all 3D printed parts at the link at the top of the page.,,,
-release-lever-16,,1,FDM,Download all 3D printed parts at the link at the top of the page.,,,
+release-lever-2u,,1,FDM,Download all 3D printed parts at the link at the top of the page.,,,
 slot-bracket,,1,FDM,Download all 3D printed parts at the link at the top of the page.,,,
-tape-guide-16,,1,FDM,Download all 3D printed parts at the link at the top of the page.,,,Used to guide tape into feeder for spools mounted beneath the machine.
+tape-guide-2u,,1,FDM,Download all 3D printed parts at the link at the top of the page.,,,Used to guide tape into feeder for spools mounted beneath the machine.
 "PLA-filament ",https://cdn.shopify.com/s/files/1/0570/4256/7355/files/filament.png?v=1686314492,1.2,FIL,https://www.microcenter.com/product/611532/inland-175mm-black-pla-3d-printer-filament-1kg-spool-(22-lbs),,,Units in kg. Print both nozzle-rack and 2x z-gantry in a black color. Print top-light-mount and bottom-light-mount in a white color.
 M5-t-slot-nut,https://cdn.shopify.com/s/files/1/0570/4256/7355/files/M5-tslot-nut.jpg?v=1686314676,1,FST,https://www.amazon.com/Fastener-Nickel-Plated-Sliding-Aluminum-Profile/dp/B086MKNYDS/ref=sxin_16_pa_sp_search_thematic_sspa,,,
 M3x18mm-flat-head,https://cdn.shopify.com/s/files/1/0570/4256/7355/files/M3x18mm.png?v=1686314956,3,FST,https://www.mcmaster.com/91294A135/,,,
