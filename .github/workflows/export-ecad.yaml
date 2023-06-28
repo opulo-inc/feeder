@@ -43,6 +43,9 @@ jobs:
         sed -i "s!<<hash>>!${COMMIT}!" pcb/indexingWheel/indexingWheel.kicad_pcb
         sed -i "s!<<hash>>!${COMMIT}!" pcb/light-diffusion/light-diffusion.kicad_pcb
         sed -i "s!<<hash>>!${COMMIT}!" pcb/photon-8mm-fid/photon-8mm-fid.kicad_pcb
+        sed -i "s!<<hash>>!${COMMIT}!" pcb/photon-8mm-fid/photon-12mm-fid.kicad_pcb
+        sed -i "s!<<hash>>!${COMMIT}!" pcb/photon-8mm-fid/photon-16mm-fid.kicad_pcb
+        sed -i "s!<<hash>>!${COMMIT}!" pcb/photon-8mm-fid/photon-24mm-fid.kicad_pcb
 
     - name: Update the PCBs with the git hash and BETA.
       if: steps.extract_branch.outputs.branch != env.main_branch
@@ -54,6 +57,9 @@ jobs:
         sed -i "s!<<hash>>!BETA-${COMMIT}!" pcb/indexingWheel/indexingWheel.kicad_pcb
         sed -i "s!<<hash>>!BETA-${COMMIT}!" pcb/light-diffusion/light-diffusion.kicad_pcb
         sed -i "s!<<hash>>!BETA-${COMMIT}!" pcb/photon-8mm-fid/fiducialBoard.kicad_pcb
+        sed -i "s!<<hash>>!BETA-${COMMIT}!" pcb/photon-12mm-fid/fiducialBoard.kicad_pcb
+        sed -i "s!<<hash>>!BETA-${COMMIT}!" pcb/photon-16mm-fid/fiducialBoard.kicad_pcb
+        sed -i "s!<<hash>>!BETA-${COMMIT}!" pcb/photon-24mm-fid/fiducialBoard.kicad_pcb
 
     - name: Generate Mobo Export Files
       run: |
@@ -90,15 +96,36 @@ jobs:
         kibot -c ../../.github/workflows/scripts/kibot/config-2layer.kibot.yaml -e fiducialBoard.kicad_sch -b fiducialBoard.kicad_pcb -d photon-8mm-fid
         zip -r -j photon-8mm-fid.zip photon-8mm-fid/
 
+    - name: Generate Photon 12mm Fiducial Export Files
+      run: |
+        cd pcb/photon-12mm-fid
+        rm -rf photon-12mm-fid/     
+        kibot -c ../../.github/workflows/scripts/kibot/config-2layer.kibot.yaml -e fiducialBoard.kicad_sch -b fiducialBoard.kicad_pcb -d photon-12mm-fid
+        zip -r -j photon-12mm-fid.zip photon-12mm-fid/
+
+    - name: Generate Photon 16mm Fiducial Export Files
+      run: |
+        cd pcb/photon-16mm-fid
+        rm -rf photon-16mm-fid/     
+        kibot -c ../../.github/workflows/scripts/kibot/config-2layer.kibot.yaml -e fiducialBoard.kicad_sch -b fiducialBoard.kicad_pcb -d photon-16mm-fid
+        zip -r -j photon-16mm-fid.zip photon-16mm-fid/
+
+    - name: Generate Photon 24mm Fiducial Export Files
+      run: |
+        cd pcb/photon-24mm-fid
+        rm -rf photon-24mm-fid/     
+        kibot -c ../../.github/workflows/scripts/kibot/config-2layer.kibot.yaml -e fiducialBoard.kicad_sch -b fiducialBoard.kicad_pcb -d photon-24mm-fid
+        zip -r -j photon-24mm-fid.zip photon-24mm-fid/
+
     - name: Zip PCB Export Files for Artifacts  
       run: |
         cd pcb/
-        zip -r -j Feeder-PCBs.zip photon-8mm-fid/photon-8mm-fid.zip light-diffusion/light-diffusion.zip indexingWheel/indexing-wheel.zip feederFloor/slot.zip mobo/mobo.zip
+        zip -r -j Feeder-PCBs.zip photon-8mm-fid/photon-8mm-fid.zip photon-12mm-fid/photon-12mm-fid.zip photon-16mm-fid/photon-16mm-fid.zip photon-24mm-fid/photon-24mm-fid.zip light-diffusion/light-diffusion.zip indexingWheel/indexing-wheel.zip feederFloor/slot.zip mobo/mobo.zip
 
     - name: Zip PCB Export Files for Release  
       run: |
         cd pcb/
-        zip -r -j Feeder-PCBs-${{ github.event.release.tag_name }}.zip photon-8mm-fid/photon-8mm-fid.zip light-diffusion/light-diffusion.zip indexingWheel/indexing-wheel.zip feederFloor/slot.zip mobo/mobo.zip
+        zip -r -j Feeder-PCBs-${{ github.event.release.tag_name }}.zip photon-8mm-fid/photon-8mm-fid.zip photon-12mm-fid/photon-12mm-fid.zip photon-16mm-fid/photon-16mm-fid.zip photon-24mm-fid/photon-24mm-fid.zip light-diffusion/light-diffusion.zip indexingWheel/indexing-wheel.zip feederFloor/slot.zip mobo/mobo.zip
 
     - name: Upload PCB Export Files as Artifacts
       uses: actions/upload-artifact@v2
