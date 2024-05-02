@@ -18900,7 +18900,7 @@
 				)
 			)
 		)
-		(property "Footprint" "index:MHS110FRGBCT"
+		(property "Footprint" "feeder:MHS110FRGBCT"
 			(at 167.64 242.57 0)
 			(effects
 				(font

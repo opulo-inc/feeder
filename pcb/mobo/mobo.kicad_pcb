@@ -6554,7 +6554,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "index:goblin"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -10215,27 +10215,15 @@
 			)
 		)
 	)
-	(footprint "index:MHS110FRGBCT"
+	(footprint "feeder:MHS110FRGBCT"
 		(layer "F.Cu")
 		(uuid "8dbbc856-d48b-43b0-b52a-b34dcf3f1187")
 		(at 130.85 112.3)
 		(property "Reference" "U3"
-			(at 2.65 0 180)
+			(at 0 -1.8 0)
 			(unlocked yes)
 			(layer "F.SilkS")
-			(uuid "669aed7c-c1cf-40b1-ba09-1efa996f0325")
-			(effects
-				(font
-					(size 0.75 0.75)
-					(thickness 0.1)
-				)
-			)
-		)
-		(property "Value" "~"
-			(at 0 1 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(uuid "abe38fa5-aca4-4a24-8b20-e59b46ae33c7")
+			(uuid "859d1e28-c2a4-4090-a7b3-75c5cd744867")
 			(effects
 				(font
 					(size 1 1)
@@ -10243,12 +10231,24 @@
 				)
 			)
 		)
-		(property "Footprint" "index:MHS110FRGBCT"
+		(property "Value" "~"
+			(at 0 1 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(uuid "cf0491ac-fa41-488e-9f12-f5e93eacaf29")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Footprint" "feeder:MHS110FRGBCT"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "0e492dbc-2f0c-4261-b611-87e7e47fa32e")
+			(uuid "583b2ff7-6f24-4634-aba3-9226d645561d")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10260,7 +10260,7 @@
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "629071f5-1442-4a2f-8aa0-a351c99b63ea")
+			(uuid "959cc69e-6e33-43d0-bb2b-041e0f992618")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10272,7 +10272,7 @@
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "16cadf0f-ab31-4d9c-9b86-b0bfbd1dba5e")
+			(uuid "ee0377d4-ef23-418d-a298-0857b1f8fcf1")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10292,13 +10292,13 @@
 				(type solid)
 			)
 			(layer "F.SilkS")
-			(uuid "a4805ce6-a794-4517-80be-c625dd268288")
+			(uuid "21ddf655-e7a2-43dd-b686-84e7f769cc3d")
 		)
 		(fp_text user "${REFERENCE}"
 			(at 0 2.5 0)
 			(unlocked yes)
 			(layer "F.Fab")
-			(uuid "b957cc29-a406-4005-b8c0-cf47aff95c05")
+			(uuid "a83ab5f4-b4ee-4379-8093-122558f71b4a")
 			(effects
 				(font
 					(size 1 1)
@@ -10314,7 +10314,7 @@
 			(net 2 "+3V3")
 			(pinfunction "VCC")
 			(pintype "passive")
-			(uuid "95a9e786-979a-47a2-81e4-639f9d06432b")
+			(uuid "49c8b59c-6ace-4464-a18e-0f7aeaf4c42a")
 		)
 		(pad "2" smd roundrect
 			(at -0.4 -0.675)
@@ -10324,7 +10324,7 @@
 			(net 62 "Net-(D3-BK)")
 			(pinfunction "B")
 			(pintype "passive")
-			(uuid "cb22b20a-8621-4a81-b053-ffb7dc999bf4")
+			(uuid "bd718b16-45be-41f5-a64b-8389608b203d")
 		)
 		(pad "3" smd roundrect
 			(at 0.4 -0.675)
@@ -10334,7 +10334,7 @@
 			(net 61 "Net-(D3-GK)")
 			(pinfunction "G")
 			(pintype "passive")
-			(uuid "2abe7257-8c5b-4e7b-9cc6-8a56fbb3be58")
+			(uuid "4e897f0d-0f22-4460-a792-a605cb670c21")
 		)
 		(pad "4" smd roundrect
 			(at 1.4 -0.4)
@@ -10344,7 +10344,7 @@
 			(net 60 "Net-(D3-RK)")
 			(pinfunction "R")
 			(pintype "passive")
-			(uuid "a81ccb29-3aad-424a-8f2a-d713efd10351")
+			(uuid "c5301a80-fd6d-4eaa-99b2-48e2329857a7")
 		)
 	)
 	(footprint "Package_SON:WSON-8-1EP_2x2mm_P0.5mm_EP0.9x1.6mm"
@@ -18250,7 +18250,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "LOGO"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -18680,7 +18680,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "feeder:pulsar"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -27257,7 +27257,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "index:logo_mask"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -27393,7 +27393,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "LOGO"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "F.Fab")
