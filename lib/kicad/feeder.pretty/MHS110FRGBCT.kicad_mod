@@ -27,7 +27,7 @@
 			)
 		)
 	)
-	(property "Footprint" ""
+	(property "Footprint" "MHS110FRGBCT"
 		(at 0 0 0)
 		(unlocked yes)
 		(layer "F.Fab")
