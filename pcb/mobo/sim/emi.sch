@@ -1,6 +1,6 @@
 <Qucs Schematic 24.2.1>
 <Properties>
-  <View=-117,45,915,725,1.52348,0,160>
+  <View=-207,10,1004,685,1.29778,0,0>
   <Grid=10,10,1>
   <DataSet=emi.dat>
   <DataDisplay=emi.dpl>
@@ -20,7 +20,6 @@
   <GND * 1 160 170 0 0 0 0>
   <L L1 1 250 80 -26 10 0 0 "4.7 uH" 1 "" 0>
   <R R1 1 330 80 -26 15 0 0 "105 mOhm" 1 "26.85" 0 "0.0" 0 "0.0" 0 "26.85" 0 "european" 0>
-  <.AC AC1 1 90 300 0 42 0 0 "lin" 1 "1 Hz" 1 "10 MHz" 1 "10000" 1 "no" 0>
   <C C4 1 70 140 17 -26 0 1 "22 uF" 1 "" 0 "neutral" 0>
   <GND * 1 70 170 0 0 0 0>
   <NutmegEq NutmegEq1 1 110 470 -28 17 0 0 "ALL" 1 "gaindB=dB(vin/circuit)" 1>
@@ -31,6 +30,7 @@
   <C C6 1 530 140 17 -26 0 1 "100 nF" 1 "" 0 "neutral" 0>
   <GND * 1 530 170 0 0 0 0>
   <NutmegEq NutmegEq2 1 110 570 -28 17 0 0 "ALL" 1 "phase=phase(vin/circuit)*180/pi" 1>
+  <.AC AC1 1 90 300 0 42 0 0 "lin" 1 "100 Hz" 1 "1 MHz" 1 "10000" 1 "no" 0>
 </Components>
 <Wires>
   <160 80 160 110 "" 0 0 0 "">
