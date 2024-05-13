@@ -513,7 +513,7 @@
       "gencad": "",
       "idf": "",
       "netlist": "mobo.net",
-      "plot": "",
+      "plot": "out/",
       "pos_files": "",
       "specctra_dsn": "",
       "step": "mobo.step",
@@ -539,7 +539,7 @@
       "exclude_dnp": false,
       "fields_ordered": [
         {
-          "group_by": false,
+          "group_by": true,
           "label": "Reference",
           "name": "Reference",
           "show": true
