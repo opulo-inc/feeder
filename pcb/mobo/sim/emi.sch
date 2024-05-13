@@ -1,6 +1,6 @@
 <Qucs Schematic 24.2.1>
 <Properties>
-  <View=-353,7,1647,888,1.46178,365,0>
+  <View=-117,45,915,725,1.52348,0,160>
   <Grid=10,10,1>
   <DataSet=emi.dat>
   <DataDisplay=emi.dpl>
@@ -30,6 +30,7 @@
   <GND * 1 660 170 0 0 0 0>
   <C C6 1 530 140 17 -26 0 1 "100 nF" 1 "" 0 "neutral" 0>
   <GND * 1 530 170 0 0 0 0>
+  <NutmegEq NutmegEq2 1 110 570 -28 17 0 0 "ALL" 1 "phase=phase(vin/circuit)*180/pi" 1>
 </Components>
 <Wires>
   <160 80 160 110 "" 0 0 0 "">
@@ -47,8 +48,9 @@
   <660 80 660 80 "circuit" 690 50 0 "">
 </Wires>
 <Diagrams>
-  <Rect 270 522 392 232 3 #c0c0c0 1 10 1 0 1 0 1 0 1 0 1 -1 1 1 315 0 225 1 1 0 "" "" "">
+  <Rect 290 522 392 232 3 #c0c0c0 1 10 1 1 1 1e+07 1 -124.752 50 25.1886 1 -200 50 17.997 315 0 225 1 0 0 "" "" "">
 	<"ngspice/ac.gaindb" #0000ff 0 3 0 0 0>
+	<"ngspice/ac.phase" #ff0000 0 3 0 0 1>
   </Rect>
 </Diagrams>
 <Paintings>
