@@ -1,4 +1,0 @@
-(sym_lib_table
-  (lib (name "index")(type "KiCad")(uri "${KIPRJMOD}/../../../lib/kicad/index.kicad_sym")(options "")(descr ""))
-  (lib (name "feeder")(type "KiCad")(uri "/Users/stephen/feeder/lib/kicad/feeder.kicad_sym")(options "")(descr ""))
-)
