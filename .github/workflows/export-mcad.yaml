@@ -75,7 +75,7 @@ jobs:
 
     - name: Upload STLs as Artifacts
       if: github.event_name != 'release'
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3
       with:
         name: Feeder-STLs
         path: ~/Feeder-STLs.zip
