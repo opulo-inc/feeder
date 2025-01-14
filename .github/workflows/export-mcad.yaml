@@ -17,6 +17,8 @@ jobs:
 
     - name: Download repository
       uses: actions/checkout@v2
+      with:
+        lfs: 'true'
 
     - name: Install FreeCAD Python library
       run:  |
