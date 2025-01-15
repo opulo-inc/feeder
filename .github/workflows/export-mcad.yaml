@@ -19,6 +19,9 @@ jobs:
       uses: actions/checkout@v2
       with:
         lfs: 'true'
+    - name: checkoutLFS
+      uses: actions/checkout@v2
+    - run: git lfs pull
 
     - name: Install FreeCAD Python library
       run:  |
