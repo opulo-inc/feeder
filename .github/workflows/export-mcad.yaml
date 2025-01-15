@@ -16,11 +16,9 @@ jobs:
       run: echo "SHORT_SHA=`echo ${GITHUB_SHA} | cut -c1-8`" >> $GITHUB_ENV
 
     - name: Download repository
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
       with:
         lfs: true
-    - name: checkoutLFS
-      uses: actions/checkout@v2
     - run: git lfs pull
 
     - name: Install FreeCAD Python library
