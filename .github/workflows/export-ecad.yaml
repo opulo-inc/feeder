@@ -39,8 +39,6 @@ jobs:
         echo "ref: ${{ github.ref }}"
         echo "default: ${{ env.default }}"
         sed -i "s!<<hash>>!${COMMIT}!" pcb/mobo/mobo.kicad_pcb
-        sed -i "s!<<hash>>!${COMMIT}!" pcb/feederFloor/feederFloor.kicad_pcb
-        sed -i "s!<<hash>>!${COMMIT}!" pcb/indexingWheel/indexingWheel.kicad_pcb
         sed -i "s!<<hash>>!${COMMIT}!" pcb/light-diffusion/light-diffusion.kicad_pcb
         sed -i "s!<<hash>>!${COMMIT}!" pcb/photon-8mm-fid/photon-8mm-fid.kicad_pcb
 
@@ -50,8 +48,6 @@ jobs:
         export COMMIT=$(git rev-parse --short HEAD)
         echo "COMMIT = ${COMMIT}"
         sed -i "s!<<hash>>!BETA-${COMMIT}!" pcb/mobo/mobo.kicad_pcb
-        sed -i "s!<<hash>>!BETA-${COMMIT}!" pcb/feederFloor/feederFloor.kicad_pcb
-        sed -i "s!<<hash>>!BETA-${COMMIT}!" pcb/indexingWheel/indexingWheel.kicad_pcb
         sed -i "s!<<hash>>!BETA-${COMMIT}!" pcb/light-diffusion/light-diffusion.kicad_pcb
         sed -i "s!<<hash>>!BETA-${COMMIT}!" pcb/photon-8mm-fid/fiducialBoard.kicad_pcb
 
@@ -61,20 +57,6 @@ jobs:
         rm -rf mobo/
         kibot -c ../../.github/workflows/scripts/kibot/config-2layer.kibot.yaml -e mobo.kicad_sch -b mobo.kicad_pcb -d mobo
         zip -r -j mobo.zip mobo/
-
-    - name: Generate Slot Export Files
-      run: |
-        cd pcb/feederFloor 
-        rm -rf feeder-floor/     
-        kibot -c ../../.github/workflows/scripts/kibot/config-2layer.kibot.yaml -e feederFloor.kicad_sch -b feederFloor.kicad_pcb -d slot
-        zip -r -j slot.zip slot/
-
-    - name: Generate Indexing Wheel Export Files
-      run: |
-        cd pcb/indexingWheel
-        rm -rf indexing-wheel/     
-        kibot -c ../../.github/workflows/scripts/kibot/config-2layer.kibot.yaml -e indexingWheel.kicad_sch -b indexingWheel.kicad_pcb -d indexing-wheel
-        zip -r -j indexing-wheel.zip indexing-wheel/
 
     - name: Generate Light Diffusion Export Files
       run: |
@@ -93,12 +75,12 @@ jobs:
     - name: Zip PCB Export Files for Artifacts  
       run: |
         cd pcb/
-        zip -r -j Feeder-PCBs.zip photon-8mm-fid/photon-8mm-fid.zip light-diffusion/light-diffusion.zip indexingWheel/indexing-wheel.zip feederFloor/slot.zip mobo/mobo.zip
+        zip -r -j Feeder-PCBs.zip photon-8mm-fid/photon-8mm-fid.zip light-diffusion/light-diffusion.zip mobo/mobo.zip
 
     - name: Zip PCB Export Files for Release  
       run: |
         cd pcb/
-        zip -r -j Feeder-PCBs-${{ github.event.release.tag_name }}.zip photon-8mm-fid/photon-8mm-fid.zip light-diffusion/light-diffusion.zip indexingWheel/indexing-wheel.zip feederFloor/slot.zip mobo/mobo.zip
+        zip -r -j Feeder-PCBs-${{ github.event.release.tag_name }}.zip photon-8mm-fid/photon-8mm-fid.zip light-diffusion/light-diffusion.zip mobo/mobo.zip
 
     - name: Upload PCB Export Files as Artifacts
       uses: actions/upload-artifact@v4
