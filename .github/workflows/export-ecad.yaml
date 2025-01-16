@@ -22,7 +22,7 @@ jobs:
         git lfs install
 
     - name: Checkout Repository
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
       with:
         lfs: true
         
@@ -101,7 +101,7 @@ jobs:
         zip -r -j Feeder-PCBs-${{ github.event.release.tag_name }}.zip photon-8mm-fid/photon-8mm-fid.zip light-diffusion/light-diffusion.zip indexingWheel/indexing-wheel.zip feederFloor/slot.zip mobo/mobo.zip
 
     - name: Upload PCB Export Files as Artifacts
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v4
       with:
         name: Feeder-PCBs.zip
         path: pcb/Feeder-PCBs.zip
