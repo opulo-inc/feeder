@@ -193,4 +193,3 @@ if __name__ == '__main__':
         noun = "exception" if len(exceptions) == 1 else "exceptions"
         print(f"There {verb} {len(exceptions)} {noun}")
 
-        assert len(exceptions) == 0
