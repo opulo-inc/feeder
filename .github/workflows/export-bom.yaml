@@ -18,7 +18,7 @@ jobs:
         sudo apt install python3
 
     - name: Download repository
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
 
     - name: Generate BOM HTML Page for Release
       if: github.event_name == 'release'
@@ -97,7 +97,7 @@ jobs:
 
     - name: upload BOM results
       if: github.event_name != 'release'
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v4
       with:
         name: Feeder-BOM
         path: Feeder-BOM.zip
