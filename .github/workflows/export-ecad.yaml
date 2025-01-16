@@ -40,7 +40,7 @@ jobs:
         echo "default: ${{ env.default }}"
         sed -i "s!<<hash>>!${COMMIT}!" pcb/mobo/mobo.kicad_pcb
         sed -i "s!<<hash>>!${COMMIT}!" pcb/light-diffusion/light-diffusion.kicad_pcb
-        sed -i "s!<<hash>>!${COMMIT}!" pcb/photon-8mm-fid/photon-8mm-fid.kicad_pcb
+        sed -i "s!<<hash>>!${COMMIT}!" pcb/photon-8mm-fid/fiducialBoard.kicad_pcb
 
     - name: Update the PCBs with the git hash and BETA.
       if: steps.extract_branch.outputs.branch != env.main_branch
