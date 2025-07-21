@@ -13,6 +13,10 @@ _autosave-*
 *-save.pro
 *-save.kicad_pcb
 fp-info-cache
+# KiCad auto-backup folders
+*-backups/
+# KiCad local project settings (doesn't contain design info)
+*.kicad_prl
 
 # Netlist files (exported from Eeschema)
 *.net
@@ -25,3 +29,6 @@ fp-info-cache
 *.xml
 *.FCStd1
 out/
+
+# Freecad backups
+*.FCBak
