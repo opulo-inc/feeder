@@ -202,4 +202,15 @@
 		(uuid "bebbc6a9-85ed-4964-a898-828d34330bb8")
 	)
 	(embedded_fonts no)
+	(model "/Users/stephen/feeder/lib/kicad/3d/SKTDLDE010.stp"
+		(offset
+			(xyz 0 -1.35 0.7)
+		)
+		(scale
+			(xyz 1 1 1)
+		)
+		(rotate
+			(xyz -90 -0 -180)
+		)
+	)
 )
