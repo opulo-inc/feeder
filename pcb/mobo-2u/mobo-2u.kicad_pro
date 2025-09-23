@@ -541,7 +541,7 @@
       "plot": "out/rev00b1/",
       "pos_files": "",
       "specctra_dsn": "",
-      "step": "mobo.step",
+      "step": "../../../Downloads/print/pcb.step",
       "svg": "",
       "vrml": ""
     },
