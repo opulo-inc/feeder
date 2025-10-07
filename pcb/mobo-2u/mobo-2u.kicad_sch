@@ -5260,122 +5260,6 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "feeder:DRV5053VAQDBZR"
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" "U"
-				(at 4.318 5.334 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Value" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" "Package_TO_SOT_SMD:SOT-23"
-				(at -0.508 -9.906 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" "https://www.ti.com/lit/ds/symlink/drv5053.pdf"
-				(at -0.254 -14.478 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Description" "Analog-Bipolar Hall Effect Sensor"
-				(at 0 -12.192 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(symbol "DRV5053VAQDBZR_1_1"
-				(rectangle
-					(start -6.35 7.366)
-					(end 6.35 -7.366)
-					(stroke
-						(width 0)
-						(type solid)
-					)
-					(fill
-						(type background)
-					)
-				)
-				(pin power_in line
-					(at -8.89 3.81 0)
-					(length 2.54)
-					(name "VCC"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin power_in line
-					(at -8.89 -5.08 0)
-					(length 2.54)
-					(name "GND"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "3"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin output line
-					(at 8.89 0 180)
-					(length 2.54)
-					(name "OUT"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
 		(symbol "feeder:MHS110FRGBCT"
 			(exclude_from_sim no)
 			(in_bom yes)
@@ -8204,16 +8088,6 @@
 	)
 	(wire
 		(pts
-			(xy 428.625 116.205) (xy 430.53 116.205)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "98b5631f-3e65-4973-9402-d4117d5dc6fb")
-	)
-	(wire
-		(pts
 			(xy 378.46 93.345) (xy 385.445 93.345)
 		)
 		(stroke
@@ -8464,13 +8338,13 @@
 	)
 	(wire
 		(pts
-			(xy 428.625 125.095) (xy 430.53 125.095)
+			(xy 137.795 34.29) (xy 137.795 34.925)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "c1e7fee1-4118-492c-842d-fbd8ad6133da")
+		(uuid "c2174a9a-3bf6-4372-812b-2a2a43fb13cc")
 	)
 	(wire
 		(pts
@@ -8491,16 +8365,6 @@
 			(type default)
 		)
 		(uuid "c5975e8e-ccd5-4b24-9dd7-b0f33c9f16c0")
-	)
-	(wire
-		(pts
-			(xy 448.31 120.015) (xy 450.215 120.015)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "c6efb398-8fb6-4e57-b039-5b959ac5f37e")
 	)
 	(wire
 		(pts
@@ -8621,6 +8485,16 @@
 			(type default)
 		)
 		(uuid "ceb44b8f-6d60-47c5-8716-c8636719d8c0")
+	)
+	(wire
+		(pts
+			(xy 135.89 34.29) (xy 137.795 34.29)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "cedf15fe-9dc7-4b17-82ed-d219463be6f8")
 	)
 	(wire
 		(pts
@@ -9439,7 +9313,7 @@
 	)
 	(global_label "OSC_OUT"
 		(shape input)
-		(at 47.625 74.93 180)
+		(at 47.625 59.69 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -9449,7 +9323,7 @@
 		)
 		(uuid "2684191a-ee70-4c1c-8094-81496ab52396")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 36.8946 74.8506 0)
+			(at 36.8946 59.6106 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10495,7 +10369,7 @@
 	)
 	(global_label "OSC_IN"
 		(shape input)
-		(at 47.625 72.39 180)
+		(at 47.625 57.15 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -10505,7 +10379,7 @@
 		)
 		(uuid "bb7b1272-bc9e-4c8f-a90c-9dd82e64a649")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 38.5879 72.4694 0)
+			(at 38.5879 57.2294 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10769,28 +10643,6 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
-			)
-		)
-	)
-	(global_label "FILM_TENSION"
-		(shape input)
-		(at 450.215 120.015 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "e327559c-7dd3-4996-bcc9-a8900bfd0878")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 464.7137 120.015 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
 				(hide yes)
 			)
 		)
@@ -16819,77 +16671,6 @@
 		)
 	)
 	(symbol
-		(lib_id "feeder:DRV5053VAQDBZR")
-		(at 439.42 120.015 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "8ecd00a1-bba3-4734-b2b4-051b1bb3106f")
-		(property "Reference" "U4"
-			(at 439.42 110.627 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "~"
-			(at 439.42 112.0775 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Package_TO_SOT_SMD:SOT-23"
-			(at 438.912 129.921 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "https://www.ti.com/lit/ds/symlink/drv5053.pdf"
-			(at 439.166 134.493 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Analog-Bipolar Hall Effect Sensor"
-			(at 439.42 132.207 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "9e0d6dff-d599-4da2-94e2-a6b90fcc0655")
-		)
-		(pin "3"
-			(uuid "47e4641e-6c4a-4696-a716-26147fbfb324")
-		)
-		(pin "2"
-			(uuid "0fcbab87-b221-4e40-a809-b49be0405399")
-		)
-		(instances
-			(project ""
-				(path "/e502d1d5-04b0-4d4b-b5c3-8c52d09668e7"
-					(reference "U4")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Device:R_Small")
 		(at 332.105 81.915 180)
 		(unit 1)
@@ -18401,136 +18182,6 @@
 			(project "mobo-2u"
 				(path "/e502d1d5-04b0-4d4b-b5c3-8c52d09668e7"
 					(reference "#PWR0123")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND")
-		(at 428.625 125.095 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "ae9aab67-28c8-4aaf-b2fc-2e45a331dd49")
-		(property "Reference" "#PWR0122"
-			(at 428.625 131.445 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "GND"
-			(at 428.752 129.4892 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 428.625 125.095 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 428.625 125.095 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 428.625 125.095 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "bf985546-b27f-4f1f-8806-2dad8d9ec0b5")
-		)
-		(instances
-			(project "mobo-2u"
-				(path "/e502d1d5-04b0-4d4b-b5c3-8c52d09668e7"
-					(reference "#PWR0122")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:+3V3")
-		(at 428.625 116.205 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "af7af3b6-4210-43f0-962a-815a53a199ec")
-		(property "Reference" "#PWR08"
-			(at 428.625 120.015 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "+3V3"
-			(at 429.006 111.8108 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 428.625 116.205 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 428.625 116.205 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 428.625 116.205 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "c436f1bb-9378-4325-9359-1d1390cb4960")
-		)
-		(instances
-			(project "mobo-2u"
-				(path "/e502d1d5-04b0-4d4b-b5c3-8c52d09668e7"
-					(reference "#PWR08")
 					(unit 1)
 				)
 			)
@@ -20284,6 +19935,71 @@
 		)
 	)
 	(symbol
+		(lib_id "power:GND")
+		(at 137.795 34.925 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "e4079cc8-8d42-4710-9ece-c3cdcb0041cb")
+		(property "Reference" "#PWR012"
+			(at 137.795 41.275 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 137.922 39.3192 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 137.795 34.925 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 137.795 34.925 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 137.795 34.925 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "11be0f1f-eecf-4bea-a9c7-c1e823f5b7c9")
+		)
+		(instances
+			(project "mobo-2u"
+				(path "/e502d1d5-04b0-4d4b-b5c3-8c52d09668e7"
+					(reference "#PWR012")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Device:C_Small")
 		(at 124.46 126.365 180)
 		(unit 1)
@@ -21071,6 +20787,72 @@
 			(project "mobo-2u"
 				(path "/e502d1d5-04b0-4d4b-b5c3-8c52d09668e7"
 					(reference "#PWR0153")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:TestPoint")
+		(at 135.89 34.29 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "f7212afd-d757-4dc6-939b-c941ba2ab512")
+		(property "Reference" "TP13"
+			(at 131.6795 32.893 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "TP_RESET"
+			(at 134.62 33.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "TestPoint:TestPoint_Pad_D2.0mm"
+			(at 135.89 29.21 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 135.89 29.21 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 135.89 34.29 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "d0836a35-4937-4529-8d84-b2eca96cb1a7")
+		)
+		(instances
+			(project "mobo-2u"
+				(path "/e502d1d5-04b0-4d4b-b5c3-8c52d09668e7"
+					(reference "TP13")
 					(unit 1)
 				)
 			)
