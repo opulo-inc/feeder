@@ -538,7 +538,7 @@
       "gencad": "",
       "idf": "",
       "netlist": "mobo.net",
-      "plot": "out/rev00b1/",
+      "plot": "out/rev00b2/",
       "pos_files": "",
       "specctra_dsn": "",
       "step": "../../../Downloads/print/pcb.step",
