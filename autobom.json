@@ -1,0 +1,25 @@
+{
+  "source_url": "https://github.com/opulo-inc/feeder",
+  "bom_path": "bom8.json",
+  "strict": false,
+  "mcad": {
+    "export": "step",
+    "render": "src",
+    "path": "src"
+  },
+  "ecad": {
+    "export": "gerber",
+    "render": "src",
+    "path": "src/PCB"
+  },
+  "wcad": {
+    "export": "svg",
+    "path": "src/CHA"
+  },
+  "site": {
+    "colors": {
+      "primary": "daa520",
+      "secondary": "af8000"
+    }
+  }
+}

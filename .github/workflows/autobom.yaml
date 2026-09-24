@@ -1,0 +1,19 @@
+# AutoBOM exports CAD, renders previews, builds the shareable BOM page.
+# Artifact "Autobom" is uploaded by the action (autobom/ folder).
+
+name: AutoBOM
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+
+jobs:
+  autobom:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout hardware repo
+        uses: actions/checkout@v4
+
+      - name: Run AutoBOM
+        uses: opulo-inc/autobom@main
