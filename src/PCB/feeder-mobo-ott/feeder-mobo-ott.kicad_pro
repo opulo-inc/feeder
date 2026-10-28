@@ -557,7 +557,7 @@
       "gencad": "",
       "idf": "",
       "netlist": "mobo.net",
-      "plot": "/Users/stephen/Library/CloudStorage/GoogleDrive-stephen@opulo.io/Shared drives/OpuloEngineering/manufacturing/jigs/feeders/v2-programmer/cad/",
+      "plot": "../../../../Downloads/test/",
       "pos_files": "../../../../Library/CloudStorage/GoogleDrive-stephen@opulo.io/Shared drives/OpuloEngineering/drawings/PCB/feeder-mobo-ott_PCA-0028/00/REV00/",
       "specctra_dsn": "",
       "step": "../../../Library/CloudStorage/GoogleDrive-stephen@opulo.io/Shared drives/OpuloEngineering/drawings/PCB/feeder-mobo-ott_PCA-0028/00/REV00/pcb.step",
