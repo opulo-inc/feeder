@@ -4,13 +4,13 @@ This page aims to illustrate the design decisions behind the LumenPnP Feeders. T
 
 ## Overview
 
-The LumenPnP feeders are a mostly 3D printed tape feeder capable of reliably feeding 0402 components. They are designed to easily mount to a 20mm x 20mm v-slot aluminum extrusion. There are two motors in the system: a drive motor and a peel motor. The drive motor is a right-angle N20 motor with an encoder, giving us incredibly high resolution control of the motor's position. The peel motor is a standard N20 motor that peels film using a few 3D printed gears. The feeder has two buttons for tape loading and manual control. A third button puts the feeder into bootloader mode, allowing anyone to flash new firmware using a common FTDI USB to UART converter.
+The LumenPnP feeders are a mostly 3D printed tape feeder capable of reliably feeding 0402 components. They are designed to easily mount to a 20mm x 20mm v-slot aluminum extrusion. There are two motors in the system: a drive motor and a peel motor. The drive motor is a right-angle N30 motor with an encoder, giving us incredibly high resolution control of the motor's position. The peel motor is a standard N20 motor that peels film using a few 3D printed gears. The feeder has two buttons for tape loading and manual control. A third button puts the feeder into bootloader mode, allowing anyone to flash new firmware using a common FTDI USB to UART converter.
 
-Feeders connect to power and communication when mounted to a rail through a "slot." Slots all connect back to a LumenPnP motherboard using an IDC cable. Each slot has a 1-Wire EEPROM onboard which holds the slot's address. This address is used to tell OpenPnP where a certain feeder has been mounted. All communication back to the motherboard happens over RS-485 using the Photon Protocol.
+Feeders connect to power and communication when mounted to a rail through a "slot." Slots all connect back to a LumenPnP motherboard. Each slot has a 1-Wire EEPROM onboard which holds the slot's address. This address is used to tell OpenPnP where a certain feeder has been mounted. All communication back to the motherboard happens over RS-485 using the Photon Protocol.
 
 ## Drive Subsystem
 
-The Drive Subsystem is in charge of moving the tape forward at very precise increments. A right-angle N20 motor with a 1:1030 ratio gearbox was chosen for this task. This gear ratio provide a tremendous amount of torque for the size of the motor. An encoder on the back shaft of the motor has 14 ticks per revolution, which results in a theoretical 8.8 micron tape movement resolution. Of course, there are many other factors at play that reduce how precise the feeder is actually able to position tape, but the encoder is plenty precise enough for our application.
+The Drive Subsystem is in charge of moving the tape forward at very precise increments. A right-angle N30 motor with a ~1:1030 ratio gearbox was chosen for this task. This gear ratio provide a tremendous amount of torque for the size of the motor. An encoder on the back shaft of the motor has 14 ticks per revolution, which results in a theoretical 8.8 micron tape movement resolution. Of course, there are many other factors at play that reduce how precise the feeder is actually able to position tape, but the encoder is plenty precise enough for our application.
 
 ### Why not stepper motors?
 
@@ -26,7 +26,7 @@ It's possible to use a pancake stepper motor with a high-torque gearbox and a dr
 
 Many feeder designs utilize a custom gear system that is mounted within the feeder itself. This can provide incredibly high torque if the gearing ratio is high enough.
 
-We chose to avoid this for two main reasons. The first is that we trust the metal gearbox in a right-angle N20 motor much more than a (likely plastic) gear system that we designed. The N20 "standard" is ubiquitous and thoroughly tested. If we can keep our entire gearing system in metal gears, and in an easily sourced, highly tested part, it's a huge win for accessibility and reliability.
+We chose to avoid this for two main reasons. The first is that we trust the metal gearbox in a right-angle N30 motor much more than a (likely plastic) gear system that we designed. The N20 "standard" is ubiquitous and thoroughly tested. If we can keep our entire gearing system in metal gears, and in an easily sourced, highly tested part, it's a huge win for accessibility and reliability.
 
 The second reason is ease of sourcing/building. If we used "off the shelf" nylon gears, not only would using a pre-existing gear be a huge design limitation, but also they might be difficult to source for the hobbyist or builder. If we went with totally custom gears, this makes the sourcing issue even worse. And even if folks could print them at home, the resolution required for the precise tape movement would be so high that the print would likely have to be SLA.
 
@@ -42,15 +42,25 @@ On the other hand, a magnetic encoder provides 14 ticks per revolution of the mo
 
 This means that with a 128mm wheel circumference (32 teeth with 4mm spacing), we have a theoretical 8.877 micron tape positioning resolution. In practice, small tolerance stackups in the gearbox and drive wheel geometry mean we aren't this precise with actual tape position, but it's much better than the 200-500 or so micron resolution we saw with the reflective sensor.
 
-The second reason is that any backlash error in the N20 gearbox can be accounted for by only positioning **from one side**. Backlash is only evident when there exists a reversal of the axis direction. If we only ever approach our position from one direction, backlash does not play into the tape positioning. Even when feeding backwards, we simply overshoot the final position, then approach again from the same direction.
+The second reason is that any backlash error in the gearbox can be accounted for by only positioning **from one side**. Backlash is only evident when there exists a reversal of the axis direction. If we only ever approach our position from one direction, backlash does not play into the tape positioning. Even when feeding backwards, we simply overshoot the final position, then approach again from the same direction.
 
 The third reason is that with an encoder, we can move arbitrary distances. With a reflective sensor/slotted drive wheel, our resolution is limited to how far apart we've spaced the slots. With an encoder, we can command the feeder to move effectively any distance (provided it's a multiple of 8.877 microns!). This means feeding 1mm increments is fundamentally the same as feeding 4mm increments.
 
 However, this all assumes that the encoder on the output wheel is comprised of a slotted PCB with a reflective sensor. Very thin encoder wheels and sensors exist, and might be a reasonable option for feeder tape positioning. We decided against this approach due to the lower resolution, cost, and likely need for customization that would make homebrew builds more difficult. They're also susceptible to errors due to light bleed.
 
+### Why a spring-loaded pick window?
+
+The pick window is a small part that applies gentle force on the tape into the indexing wheel. A spring-loaded pick window provides a number of benefits to feeding precision and stability.
+
+First, this force ensures the tape has good engagement into the teeth of the indexing wheel, regardless of tape thickness. Especially for 8mm variants, the thickness of the tape can vary wildly. By actively pushing the tape into the wheel, we ensure the teeth have good, positive engagement with the teeth and prevent any popping out or skipping regardless of tape thickness.
+
+Second, this added force and friction greatly helps with feeding consistency. A small amount of friction in the drive system helps us stop tape movement on a dime. While this isn't fully necessary, it does let us feed faster than we could without this friction in the system.
+
+Lastly, by clamping thin tapes down into the feeder frame, it constrains the tape and prevents small parts from "jumping" out of plastic tape. Without positive pressure, the tape has lots of movement and parts are much more likely to hop out of their pockets.
+
 ## Peel Subsystem
 
-The Peel Subsystem is comprised of a standard N20 motor with a 1:210 gear ratio, with a printed worm gear attached to the output shaft. This worm gear interfaces with a gearbox used for peeling the film. The two straight gears that perform the peeling are mounted with a positive interface, ensuring the frame holding them in place is constantly applying pressure between them. This interface is what grips the film and pulls it away from the tape.
+The Peel Subsystem is comprised of a standard N20 motor with a 1:210 gear ratio, with a printed worm gear attached to the output shaft. This worm gear interfaces with a gearbox used for peeling the film. One of the gears that perform the peeling is mounted on a sping-loaded pivot that applies pressure on the second gear. This interface is what grips the film and pulls it away from the tape.
 
 ### Why not passive peeling?
 
@@ -68,11 +78,11 @@ At first, we were. But the benefits of being printable are high, allowing the de
 
 We tested the peel gear box to a quarter million feed cycles, resulting in a kilometer of tape fed, and saw no failure of the gearbox's ability to peel film. There is slight initial wear of the gears that is present within the first 10k cycles, but after this the system hits steady-state.
 
-Even then, we ensured that this part is easily replaceable if need be. It's easily printable at home, and can be replaced in less than a minute with only two screws.
+Even then, we ensured that this part is easily replaceable if need be. It's easily printable at home, and can be replaced in less than a minute with just one screw.
 
 ### Why no tension sensor?
 
-We found that it wasn't necessary. Many feeder designs use a switch to detect when the film has reached a sufficient tension, but with our flextured peel gear box, we can simply overdrive the peel mechanism and the film will slip through the gears once it's been peeled fully and can't move any more.
+We found that it wasn't necessary. Many feeder designs use a switch to detect when the film has reached a sufficient tension, but with our spring-loaded peel gear box, we can simply overdrive the peel mechanism and the film will slip through the gears once it's been peeled fully and can't move any more.
 
 ## Voltage Rails
 
@@ -80,11 +90,11 @@ The feeders are powered by 24 volts on the slot. They step this down to 10 volts
 
 ### Why 24 Volts Bus Voltage?
 
-24 volts was chosen for the bus voltage for a few reasons. First, it's already on the motherboard given that it's the voltage of the power supply for the machine. Second, a higher voltage allows us to send more power over thinner wire. We wanted to use IDC connectors on the slot harness due to the form factor of the slot, and need for many connectors on a single cable. Using 24 volts lets us send more power for a given current limit of the cable.
+24 volts was chosen for the bus voltage for a few reasons. First, it's already on the motherboard given that it's the voltage of the power supply for the machine. Second, a higher voltage allows us to send more power over thinner wire. Using 24 volts lets us send more power for a given current limit of the cable.
 
-Next comes the 10 volt buck converter. The N20 motors accept up to 12 volts, but the DRV8837 H-Bridge motor driver chips only accept up to 11 volts. This chip was chosen as the motor driver due to its cost and availability. Other chips with a higher acceptable voltage of course exist, but are much more expensive or can be hard to source. We also looked for 24 volts motors, but the N20 standard does not seem to accept a voltage higher than 12 volts.
+Next comes the 10 volt buck converter. The N20 motors accept up to 12 volts, but the DRV8837 H-Bridge motor driver chips only accept up to 11 volts. This chip was chosen as the motor driver due to its cost and availability. Other chips with a higher acceptable voltage of course exist, but are much more expensive or can be hard to source.
 
-Lastly is the 3.3 volt LDO. This is used for the microcontroller, encoder, switches, LEDs, etc.
+Lastly is the 3.3 volt buck converter. This is used for the microcontroller, encoder, switches, LEDs, etc.
 
 ## Slot Addressing
 
@@ -118,6 +128,8 @@ At the top of the communication stack is the host. The host is what decides whic
 
 Next comes Marlin. Marlin is the firmware on the LumenPnP and relays commands to feeders along an RS-485 bus that connects to every slot. It sends data using the Photon Protocol. A new M command for Marlin's gcode interface, M485, allows a host to send data down the RS-485 bus using Photon, and thereby communicating with feeders.
 
+The Photon Protocol is documented [here](https://docs.opulo.io/misc/photon/).
+
 ### Why RS-485?
 
 RS-485 is an electrical standard that is widely used, particularly in industrial environments. Being a differential signal, electromagnetic interference that affects both data lines does not affect the signal integrity.
@@ -136,31 +148,11 @@ The second reason is that we are not only working with a device ID, we are worki
 
 ## Microcontroller
 
-An STM32F031C6T6 was chosen for the feeder's microcontroller. There were a few requirements of the chip in order to hit the project goals:
+An STM32F030C8T6 was chosen for the feeder's microcontroller. There were a few requirements of the chip in order to hit the project goals:
 
 * Available and generally low cost (two variables that are a moving target in our modern semiconductor market)
 * At least 1 UART for RS-485
 * Sufficient GPIO for buttons, LED, encoder, etc.
 * Internal UUID for identification by the host
 
-As a bonus, the chip's sibling, the STM32F031K6U6, has the same die as the C6T6 but with a smaller package. This means that by using the smaller chip's GPIO count as a constraint, we have a binary-compatible drop in replacement part to help alleviate availability issues.
-
 Although a separate EEPROM chip or a software-defined UUID could solve the same problem as having a factory-burned UUID, having it in the chip prevents UUID erasure upon reprogramming, and fewer parts in the BOM.
-
-## ID Fiducial Board
-
-There's a small board on the nose of the feeder with three fiducials on it. The center one is for identifying location, and the other, smaller fiducials on either side identify what type of feeder it is.
-
-**This is not currently used. This board was shipped with all feeder hardware to support potential future features.**
-
-### Can it be used for setting pick position?
-
-It could be used for *generalized* pick position. In general, there's too much variability in the precise placement of the PCB in the print from human error and print defects. If OpenPnP can scan for the fiducial and then apply a general offset to find the broad pick position, computer vision can find the precise pick position, provided it's paper tape. Plastic tape would likely need the precise pick position set manually.
-
-### Can it be used for identifying feeder width?
-
-Absolutely! The distance the two smaller fiducials are away from the larger centered one encodes what feeder type, or width, it is. Ideally the firmware image is the same across feeder widths, and it can't hurt to have the fiducial encode that information. OpenPnP doesn't actually care that much what width a feeder is if the fiducial <-> pick position offset is set correctly.
-
-### Can it be used for setting slot location?
-
-It can, but it might not be useful in most circumstances. In a world where slots are always mounted in the same location, OpenPnP could always know where the slot locations are on a LumenPnP. However, if builders have a different slot setup, or folks trying to squeeze out every last mm of feeder space are adjusting their slot locations to accommodate wider feeders, it could be useful. OpenPnP could use vision across a given Y position and in conjunction with the slot addresses of the feeders it found over RS485, automatically set slot positions.

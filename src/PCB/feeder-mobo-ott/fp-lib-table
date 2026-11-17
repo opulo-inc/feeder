@@ -1,0 +1,7 @@
+(fp_lib_table
+  (version 7)
+  (lib (name "feeder")(type "KiCad")(uri "/Users/stephen/feeder/lib/kicad/feeder.pretty")(options "")(descr ""))
+  (lib (name "kikit")(type "KiCad")(uri "/Users/stephen/lumenpnp/lib/kicad/kikit.pretty")(options "")(descr ""))
+  (lib (name "index")(type "KiCad")(uri "/Users/stephen/Library/CloudStorage/GoogleDrive-stephen@opulo.io/Shared drives/OpuloEngineering/drawings/lib/kicad/index.pretty")(options "")(descr ""))
+  (lib (name "mfg")(type "KiCad")(uri "/Users/stephen/Library/CloudStorage/GoogleDrive-stephen@opulo.io/Shared drives/OpuloEngineering/drawings/lib/kicad/mfg.pretty")(options "")(descr ""))
+)
