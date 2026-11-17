@@ -1,7 +1,7 @@
 # LumenPnP Feeders
 The LumenPnP Feeders are open source pick and place feeders designed for the [LumenPnP](https://www.opulo.io/products/lumenpnp).
 
-![LumenPnP Feeders](img/hero-alpha.png)
+![LumenPnP Feeders](img/hero-alpha-all.png)
 
 LumenPnP Feeders are available for sale on the [Opulo Website](https://www.opulo.io/products/feeders).
 
