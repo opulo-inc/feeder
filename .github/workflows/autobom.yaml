@@ -11,6 +11,8 @@ on:
 jobs:
   autobom:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - name: Checkout hardware repo
         uses: actions/checkout@v4
