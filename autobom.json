@@ -1,6 +1,5 @@
 {
   "source_url": "https://github.com/opulo-inc/feeder",
-  "bom_path": "bom8.json",
   "strict": false,
   "mcad": {
     "export": "step",
@@ -21,5 +20,11 @@
       "primary": "daa520",
       "secondary": "af8000"
     }
-  }
+  },
+  "boms": [
+    { "id": "feeder-8mm", "bom_path": "bom8.json" },
+    { "id": "feeder-12mm", "bom_path": "bom12.json" },
+    { "id": "feeder-16mm", "bom_path": "bom16.json" },
+    { "id": "feeder-24mm", "bom_path": "bom24.json" }
+  ]
 }

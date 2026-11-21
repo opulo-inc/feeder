@@ -1,0 +1,198 @@
+{
+  "name": "LumenPnP Feeder 24mm",
+  "parts": [
+    {
+      "name": "frame-24",
+      "quantity": 1,
+      "type": "mcad",
+      "optional": false,
+      "source": "https://github.com/opulo-inc/feeder",
+      "notes": ""
+    },
+    {
+      "name": "drive-motor-bracket",
+      "quantity": 1,
+      "type": "mcad",
+      "optional": false,
+      "source": "https://github.com/opulo-inc/feeder",
+      "notes": ""
+    },
+    {
+      "name": "drive-motor-cover-2u",
+      "quantity": 1,
+      "type": "mcad",
+      "optional": false,
+      "source": "https://github.com/opulo-inc/feeder",
+      "notes": ""
+    },
+    {
+      "name": "peel-pivot-2u",
+      "quantity": 1,
+      "type": "mcad",
+      "optional": false,
+      "source": "https://github.com/opulo-inc/feeder",
+      "notes": ""
+    },
+    {
+      "name": "peel-gear-top-2u",
+      "quantity": 1,
+      "type": "mcad",
+      "optional": false,
+      "source": "https://github.com/opulo-inc/feeder",
+      "notes": ""
+    },
+    {
+      "name": "peel-gear-bottom-2u",
+      "quantity": 1,
+      "type": "mcad",
+      "optional": false,
+      "source": "https://github.com/opulo-inc/feeder",
+      "notes": ""
+    },
+    {
+      "name": "peel-motor-plug",
+      "quantity": 1,
+      "type": "mcad",
+      "optional": false,
+      "source": "https://github.com/opulo-inc/feeder",
+      "notes": ""
+    },
+    {
+      "name": "pick-window-24",
+      "quantity": 1,
+      "type": "mcad",
+      "optional": false,
+      "source": "https://github.com/opulo-inc/feeder",
+      "notes": ""
+    },
+    {
+      "name": "peel-worm-gear",
+      "quantity": 1,
+      "type": "mcad",
+      "optional": false,
+      "source": "https://github.com/opulo-inc/feeder",
+      "notes": ""
+    },
+    {
+      "name": "release-lever-2u",
+      "quantity": 1,
+      "type": "mcad",
+      "optional": false,
+      "source": "https://github.com/opulo-inc/feeder",
+      "notes": ""
+    },
+    {
+      "name": "M3x14mm-flat-head",
+      "quantity": 1,
+      "type": "misc",
+      "optional": false,
+      "source": "https://www.mcmaster.com/91294A133/",
+      "notes": "",
+      "render": "https://cdn.shopify.com/s/files/1/0570/4256/7355/files/M3x14mm.png?v=1686314903"
+    },
+    {
+      "name": "M3x15mm-flat-head",
+      "quantity": 4,
+      "type": "misc",
+      "optional": false,
+      "source": "",
+      "notes": "",
+      "render": "https://cdn.shopify.com/s/files/1/0570/4256/7355/files/M3x14mm.png?v=1686314903"
+    },
+    {
+      "name": "M3x12mm-self-tapping-flat-head",
+      "quantity": 6,
+      "type": "misc",
+      "optional": false,
+      "source": "https://www.mcmaster.com/95893A403/",
+      "notes": "",
+      "render": "https://cdn.shopify.com/s/files/1/0570/4256/7355/files/M3x12-self-tapping-flat-head.png?v=1686314903"
+    },
+    {
+      "name": "M2.5x3mm-set-screw",
+      "quantity": 1,
+      "type": "misc",
+      "optional": false,
+      "source": "",
+      "notes": "ISO 4029 with thread locker"
+    },
+    {
+      "name": "feeder-compression-spring",
+      "quantity": 2,
+      "type": "misc",
+      "optional": false,
+      "source": "https://www.leespring.com/compression-springs?search=LC026C06M",
+      "notes": "",
+      "render": "https://cdn.shopify.com/s/files/1/0570/4256/7355/files/feeder-compression-spring.png?v=1691004799"
+    },
+    {
+      "name": "dt-spring-pick-window",
+      "quantity": 1,
+      "type": "misc",
+      "optional": false,
+      "source": "",
+      "notes": ""
+    },
+    {
+      "name": "feeder-mobo-ott",
+      "quantity": 1,
+      "type": "ecad",
+      "optional": false,
+      "source": "https://github.com/opulo-inc/feeder",
+      "notes": "Click link above to download source"
+    },
+    {
+      "name": "indexing-wheel",
+      "quantity": 1,
+      "type": "misc",
+      "optional": false,
+      "source": "https://www.opulo.io/products/feeder-part-kit",
+      "notes": "Click link above to download source - This is made out of tumbled laser cut brass",
+      "render": "https://cdn.shopify.com/s/files/1/0570/4256/7355/files/drive-wheel.png?v=1736458393"
+    },
+    {
+      "name": "hex-shaft-collar",
+      "quantity": 1,
+      "type": "misc",
+      "optional": false,
+      "source": [
+        "https://www.opulo.io/products/feeder-part-kit",
+        "https://www.amazon.com/gp/product/B01EA912P8"
+      ],
+      "notes": "",
+      "render": "https://cdn.shopify.com/s/files/1/0570/4256/7355/files/shaft-collar.jpg?v=1686329653"
+    },
+    {
+      "name": "n20-motor",
+      "quantity": 1,
+      "type": "misc",
+      "optional": false,
+      "source": [
+        "https://www.opulo.io/products/feeder-part-kit",
+        "https://www.servocity.com/110-rpm-micro-gear-motor/"
+      ],
+      "notes": "1:210 gear ratio.",
+      "render": "https://cdn.shopify.com/s/files/1/0570/4256/7355/files/peel-motor.png?v=1736457933"
+    },
+    {
+      "name": "right-angle-n30",
+      "quantity": 1,
+      "type": "misc",
+      "optional": false,
+      "source": [
+        "https://www.opulo.io/products/feeder-part-kit",
+        "https://www.aliexpress.us/item/3256805361367595.html"
+      ],
+      "notes": "14-tick per revolution encoder. 1:1030 gear ratio gearbox.",
+      "render": "https://cdn.shopify.com/s/files/1/0570/4256/7355/files/drive-motor_b5743809-ea03-461a-ab2a-760804040bd6.png?v=1736458345"
+    },
+    {
+      "name": "feeder-sticker-24",
+      "quantity": 1,
+      "type": "misc",
+      "optional": false,
+      "source": "",
+      "notes": ""
+    }
+  ]
+}
