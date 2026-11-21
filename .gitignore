@@ -5,6 +5,7 @@ out/
 venv/
 .venv/
 *.stl
+autobom
 
 # KICAD
 
