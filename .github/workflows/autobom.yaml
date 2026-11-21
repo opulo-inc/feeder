@@ -16,6 +16,8 @@ jobs:
     steps:
       - name: Checkout hardware repo
         uses: actions/checkout@v4
+        with:
+          lfs: true
 
       - name: Run AutoBOM
         uses: opulo-inc/autobom@main
